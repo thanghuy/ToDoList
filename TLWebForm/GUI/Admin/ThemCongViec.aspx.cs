@@ -13,10 +13,5 @@ namespace TLWebForm.GUI.Admin
         {
 
         }
-
-        protected void themCV_Click(object sender, EventArgs e)
-        {
-            string test = tenCongViec.Value;
-        }
     }
 }
