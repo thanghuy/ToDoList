@@ -49,7 +49,7 @@
           <ul class="navbar-nav ml-auto">
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
+              <span class="nav-link dropdown-toggle" id="userDropdown">
                 <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
               </span>
               <!-- Dropdown - User Information -->
@@ -74,12 +74,24 @@
                     <div class="modal-body">
                         <form runat="server" id="demo1" method="post">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Tên công việc 1</label>
+                                <label>Tên công việc</label>
                                 <input runat="server" type="text" class="form-control" id="tenCongViec"/>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mô tả công việc</label>
-                                <input runat="server" type="text" class="form-control" id="moTaCongViec"/>
+                                <label for="exampleInputEmail1">Ngày bắt đầu</label>
+                                <input runat="server" type="date" class="form-control" id="dateStart"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Ngày kết thúc</label>
+                                <input runat="server" type="date" class="form-control" id="dateEnd"/>
+                            </div>
+                            <div class="form-check">  
+                                <input runat="server" type="checkbox" class="form-check-input" id="idPartner"/>
+                                <label class="form-check-label" >Partner</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">File</label>
+                                <input runat="server" type="file" class="form-control" id="filePath"/>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Phạm vi</label>
@@ -88,7 +100,7 @@
                                   <option value="false">Private</option>
                                 </select>
                             </div>
-                            <asp:Button ID="themCV" runat="server"  Text="Thêm" OnClientClick="themCV_Click" OnClick="themCV_Click" />
+                            <asp:Button ID="Button1" runat="server" Text="Them" OnClientClick="Button2_Click" OnClick="Button1_Click" />
                         </form>
                     </div>
                     <div class="modal-footer">
