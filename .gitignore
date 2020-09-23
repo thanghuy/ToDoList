@@ -89,3 +89,4 @@ TLWebForm/bin/TLWebForm.pdb
 TLWebForm/bin/WebGrease.dll
 TLWebForm/obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 TLWebForm/obj/Debug/TLWebForm.csproj.CopyComplete
+TLWebForm/Web.config
