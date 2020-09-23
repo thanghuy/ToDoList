@@ -17,10 +17,21 @@ namespace TLWebForm.GUI.Admin
         protected void Button1_Click(object sender, EventArgs e)
         {
             string ten = tenCongViec.Value;
+            String timeStart = DateTime.Parse(dateStart.Value).ToString();
             String timeEnd = DateTime.Parse(dateEnd.Value).ToString();
             String partner = idPartner.Value;
-            String phamvi = phamVi.Value;
-            Console.WriteLine(ten + timeEnd + partner + phamVi);
+            bool phamvi = Convert.ToBoolean(phamVi.Value);
+
+            //Console.WriteLine(ten +timeStart+ timeEnd + partner + phamVi);
+            try
+            {
+                TLWebForm.App_Data.BAL.CongViecBUS services = new App_Data.BAL.CongViecBUS();
+                services.InsertJob(ten,timeStart,timeEnd,"Invalid",phamvi);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
