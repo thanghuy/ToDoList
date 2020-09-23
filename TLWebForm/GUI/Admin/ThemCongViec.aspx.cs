@@ -14,9 +14,13 @@ namespace TLWebForm.GUI.Admin
 
         }
 
-        protected void themCV_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
-            string test = tenCongViec.Value;
+            string ten = tenCongViec.Value;
+            String timeEnd = DateTime.Parse(dateEnd.Value).ToString();
+            String partner = idPartner.Value;
+            String phamvi = phamVi.Value;
+            Console.WriteLine(ten + timeEnd + partner + phamVi);
         }
     }
 }

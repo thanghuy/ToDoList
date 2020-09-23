@@ -33,13 +33,40 @@ namespace TLWebForm.GUI.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText tenCongViec;
 
         /// <summary>
-        /// moTaCongViec control.
+        /// dateStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText moTaCongViec;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateStart;
+
+        /// <summary>
+        /// dateEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateEnd;
+
+        /// <summary>
+        /// idPartner control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox idPartner;
+
+        /// <summary>
+        /// filePath control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile filePath;
 
         /// <summary>
         /// phamVi control.
@@ -51,12 +78,12 @@ namespace TLWebForm.GUI.Admin
         protected global::System.Web.UI.HtmlControls.HtmlSelect phamVi;
 
         /// <summary>
-        /// themCV control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button themCV;
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
