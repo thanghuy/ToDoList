@@ -25,5 +25,10 @@ namespace TLWebForm.App_Data.BAL
                 service.UpdateFinishDate(id, "NULL");
             }
         }
+
+        public void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
+        {
+            service.InsertJob(ten, timeStart, timeEnd, partner, phamvi);
+        }
     }
 }
