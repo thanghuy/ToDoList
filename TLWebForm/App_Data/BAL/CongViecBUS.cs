@@ -57,6 +57,7 @@ namespace TLWebForm.App_Data.BAL
         public void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
         {
             service.InsertJob(ten, timeStart, timeEnd, partner, phamvi);
+            
         }
     }
 }
