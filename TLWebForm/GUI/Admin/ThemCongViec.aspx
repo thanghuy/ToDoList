@@ -26,7 +26,7 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="index.aspx">
-          <span class="nav-link-title sidebar-brand-text mx-3">Danh sách nhân viên</span>
+          <span class="nav-link-title sidebar-brand-text mx-3">Danh sfasdfsách nhân viên</span>
         </a>
       </li>
       <li class="nav-item">
