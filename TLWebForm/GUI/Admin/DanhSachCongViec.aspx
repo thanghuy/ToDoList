@@ -30,7 +30,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ThemCongViec.aspx">
+        <a class="nav-link" href="DanhSachCongViec.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3">Danh sách công việc</span>
         </a>
       </li>
@@ -67,7 +67,7 @@
             <div class="card-header py-3 clearfix">
               <h6 class="m-0 font-weight-bold text-primary float-left" style="line-height: 35px;">Tất cả nhân viên</h6>
               <div class="float-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addJob">Thêm công việc</button>
+                <a href="ThemCongViec.aspx" class="btn btn-primary" >Thêm công việc</a>
               </div>
               <!-- Modal thêm công việc -->
               <div class="modal fade" id="addJob" tabindex="-1" aria-labelledby="addJobLabel" aria-hidden="true">
@@ -103,7 +103,10 @@
                     <tr class="column-title">
                       <th>STT</th>
                       <th>Tên công việc</th>
-                      <th>Thao tác</th>
+                      <th>Người đang làm</th>
+                      <th>Ngày bắt đầu</th>
+                      <th>Ngày kết thúc</th>
+                      <th>Trạng thái</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -111,40 +114,10 @@
                     <tr>
                       <td>1</td>
                       <td>Lập trình fontend</td>
-                      <td>
-                        <button class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#editJob">
-                          <span class="text">Sửa</span>
-                        </button>
-                        <!-- Modal thêm công việc -->
-                        <div class="modal fade" id="editJob" tabindex="-1" aria-labelledby="editJobLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="editJobLabel">Sửa công việc</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên công việc</label>
-                                        <input type="text" class="form-control">
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                                    <button type="button" class="btn btn-primary">Lưu</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        <!-- end-->
-                        <a href="#" class="btn btn-danger btn-circle">
-                            <span class="text">Xóa</span>
-                        </a>
-                      </td>
+                      <td>Người đang làm</td>
+                      <td>Người đang làm</td>
+                      <td>Người đang làm</td>
+                      <td>Người đang làm</td>
                     </tr>
                   </tbody>
                 </table>

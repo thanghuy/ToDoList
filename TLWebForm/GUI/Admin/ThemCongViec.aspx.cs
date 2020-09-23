@@ -16,6 +16,7 @@ namespace TLWebForm.GUI.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            //Thêm công việc vào chỗ này
             string ten = tenCongViec.Value;
             String timeEnd = DateTime.Parse(dateEnd.Value).ToString();
             String partner = idPartner.Value;
