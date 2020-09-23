@@ -25,6 +25,7 @@ namespace TLWebForm.App_Data.BAL
                 service.UpdateFinishDate(id, "NULL");
             }
         }
+<<<<<<< HEAD
 
 
         public bool AssignCongViec(string idCongViec, string idNhanVien, string idPartner)
@@ -59,5 +60,7 @@ namespace TLWebForm.App_Data.BAL
             service.InsertJob(ten, timeStart, timeEnd, partner, phamvi);
             
         }
+=======
+>>>>>>> parent of 07214c8... Thêm công việc tạm
     }
 }
