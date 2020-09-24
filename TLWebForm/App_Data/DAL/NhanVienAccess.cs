@@ -108,7 +108,7 @@ namespace TLWebForm.App_Data.DAL
                     cmd.Parameters.AddWithValue("@Password", password);
                     //cmd.Parameters.AddWithValue("@AvatarPath", avatarPath);
                     cmd.Parameters.AddWithValue("@IsManager", isManager);
-                    //System.Diagnostics.Debug.WriteLine(query);
+                    System.Diagnostics.Debug.WriteLine(query);
                     cmd.ExecuteNonQuery();
                 }
             }
