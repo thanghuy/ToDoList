@@ -1,14 +1,5 @@
 
 .vs/TLWebForm/config/applicationhost.config
 .vs/TLWebForm/v16/.suo
-TLWebForm/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
-TLWebForm/obj/Debug/TLWebForm.csprojAssemblyReference.cache
-TLWebForm/TLWebForm.csproj
-.vs/TLWebForm/v16/.suo
-TLWebForm/obj/Debug/TLWebForm.csproj.CoreCompileInputs.cache
-TLWebForm/bin/TLWebForm.dll
-TLWebForm/obj/Debug/TLWebForm.csproj.FileListAbsolute.txt
-TLWebForm/obj/Debug/TLWebForm.csprojAssemblyReference.cache
-TLWebForm/obj/Debug/TLWebForm.dll
-TLWebForm/obj/Debug/TLWebForm.pdb
-.vs/TLWebForm/v16/.suo
+/TLWebForm/bin
+/TLWebForm/obj
