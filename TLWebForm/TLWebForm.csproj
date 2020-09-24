@@ -191,6 +191,7 @@
     <Compile Include="App_Data\BAL\NhanVienBUS.cs" />
     <Compile Include="App_Data\DAL\CongViecAccess.cs" />
     <Compile Include="App_Data\DAL\NhanVienAccess.cs" />
+    <Compile Include="App_Data\DTO\CongViecDTO.cs" />
     <Compile Include="GUI\AddNhanVien.aspx.cs">
       <DependentUpon>AddNhanVien.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

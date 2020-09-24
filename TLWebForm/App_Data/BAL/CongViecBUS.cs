@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
 using TLWebForm.App_Data.DAL;
+using TLWebForm.App_Start;
+using TLWebForm.GUI.Admin;
 
 namespace TLWebForm.App_Data.BAL
 {
@@ -26,6 +29,10 @@ namespace TLWebForm.App_Data.BAL
             }
         }
 
+        internal List<CongViecDTO> GetAllCongViec()
+        {
+            return service.GetAllCongViec();
+        }
 
         public bool AssignCongViec(string idCongViec, string idNhanVien, string idPartner)
         {

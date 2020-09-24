@@ -1,6 +1,13 @@
-﻿using System;
+﻿using Dapper;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using TLWebForm.App_Start;
+using TLWebForm.GUI.Admin;
+using TLWebForm.GUI.NhanVien;
 
 namespace TLWebForm.App_Data.DAL
 {
@@ -22,6 +29,40 @@ namespace TLWebForm.App_Data.DAL
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        internal List<CongViecDTO> GetAllCongViec()
+        {
+            List<CongViecDTO> list = new List<CongViecDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select * from CongViec";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            CongViecDTO cv = new CongViecDTO();
+                            cv.Id = Convert.ToInt32(dr[0].ToString());
+                            cv.NgayBatDau = dr[2].ToString();
+                            cv.NgayKetThuc = dr[3].ToString();
+                            cv.PhamVi = (bool)dr["PhamVi"];
+                            cv.Status = (bool)dr["Status"];
+                            cv.TenCongViec = dr[1].ToString();
+                            cv.BinhLuan = dr[6].ToString();
+                            cv.FileDinhKem = dr[5].ToString();
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;
         }
 
         internal void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
