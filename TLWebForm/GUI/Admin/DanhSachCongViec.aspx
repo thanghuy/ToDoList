@@ -112,12 +112,9 @@
                   <tbody>
                       <asp:PlaceHolder ID="placeholder" runat="server" />
                     <tr>
-                      <td>1</td>
-                      <td>Lập trình fontend</td>
-                      <td>Người đang làm</td>
-                      <td>Người đang làm</td>
-                      <td>Người đang làm</td>
-                      <td>Người đang làm</td>
+                        
+                        <asp:PlaceHolder ID="showCV" runat="server"></asp:PlaceHolder>
+
                     </tr>
                   </tbody>
                 </table>

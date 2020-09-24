@@ -74,6 +74,16 @@
                     <div class="modal-body">
                         <form runat="server" id="demo1" method="post">
                             <div class="form-group">
+                                <label for="exampleFormControlSelect1">Chọn công việc</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>CV1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày bắt đầu</label>
                                 <input runat="server" type="date" class="form-control" id="dateS"/>
                             </div>
