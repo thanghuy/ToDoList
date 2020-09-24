@@ -7,10 +7,10 @@ using TLWebForm.App_Data.DAL;
 
 namespace TLWebForm.App_Data.BAL
 {
-    public class CommentBUS
+    public class PhanCongBUS
     {
-        private CommentAccess service = new CommentAccess();
-        public CommentBUS() { }
+        private PhanCongAccess service = new PhanCongAccess();
+        public PhanCongBUS() { }
 
        public void MakeComment(string idCongViec, string idNhanVien, string content)
         {
