@@ -19,7 +19,7 @@ namespace TLWebForm.App_Data.DAL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"update NhanVien" +
+                string query = @"update CongViec" +
                                 "set Status = @status" +
                                 "where Id = @id";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
@@ -95,7 +95,7 @@ namespace TLWebForm.App_Data.DAL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"update NhanVien" +
+                string query = @"update CongViec" +
                                 "set NgayKetThuc = @date" +
                                 "where Id = @id";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
