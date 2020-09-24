@@ -16,6 +16,7 @@ namespace TLWebForm.App_Data.DAL
                                 "where IdNhanVien = @idNhanVien and IdCongViec = @idCongViec";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
+                    //reupS
                     cmd.Parameters.AddWithValue("@idCongViec", idCongViec);
                     cmd.Parameters.AddWithValue("@idNhanVien", idNhanVien);
                     cmd.Parameters.AddWithValue("@comment", comment);

@@ -20,7 +20,7 @@ namespace TLWebForm.App_Data.BAL
             }
             else
             {
-                //test pull
+                //Reup
                 service.MakeComment(idCongViec, idNhanVien, content);
             }
         }
