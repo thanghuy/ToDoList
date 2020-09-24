@@ -116,6 +116,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Compile Include="App_Data\BAL\CongViecBUS.cs" />
+    <Compile Include="App_Data\DTO\NhanVienDTO.cs" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\style.css" />
     <Content Include="GUI\AddNhanVien.aspx" />

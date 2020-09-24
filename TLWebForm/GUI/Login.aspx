@@ -30,6 +30,7 @@
                         <div class="form-group">
                           <input type="password" class="form-control form-control-user" id="password" runat="server" name="password" placeholder="Nhập mật khẩu"/>
                         </div>
+                          <asp:PlaceHolder ID="ErrorLogin" runat="server"></asp:PlaceHolder>
                         <asp:Button ID="login_user" runat="server" OnClick="Login_Click" Text="Đăng nhập" class="btn btn-primary btn-user btn-block" />
                       </form>
                     </div>

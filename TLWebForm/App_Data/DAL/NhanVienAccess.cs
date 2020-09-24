@@ -1,10 +1,12 @@
 ﻿using Dapper;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.App_Data.DAL
 {
@@ -44,6 +46,37 @@ namespace TLWebForm.App_Data.DAL
                 }
                 //return Convert.ToBoolean();
             }
+        }
+        public List<NhanVienDTO> GetLoginInfo(string email, string password)
+        {
+            List<NhanVienDTO> list = new List<NhanVienDTO>(); 
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                connection.Open();
+                string query = @"select * from NhanVien where Email = @Email and Password = @Password ";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    SqlDataReader rd = cmd.ExecuteReader();
+                    while (rd.Read())
+                    {
+                        NhanVienDTO nv = new NhanVienDTO();
+                        nv.idNV = rd.GetInt32(0);
+                        nv.TenNV = rd.GetString(1);
+                        nv.Email = rd.GetString(2);
+                        nv.Quyen = rd.GetBoolean(3);
+                        nv.Password = rd.GetString(4);
+                        list.Add(nv);
+
+                    }
+                }
+                //
+            }
+            return list;
         }
 
         public DataSet GetNhanVienById(string id)

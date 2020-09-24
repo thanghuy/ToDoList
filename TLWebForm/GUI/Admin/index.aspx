@@ -10,6 +10,8 @@
 </head>
 <body id="page-top">
 
+    <form id="form1" runat="server">
+
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -48,10 +50,19 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top">
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#">Xin chào :
+&nbsp;<span class="nav-link text-info"><asp:PlaceHolder ID="userName" runat="server"></asp:PlaceHolder>
+                          &nbsp
+                          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      </span>
+                  </a>
+                  <!-- Dropdown - User Information -->
+                </li>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
-                <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
+                  <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" OnClientClick="Logout" Text="Đăng xuất" class="btn btn-primary border mr-2"/>
               </span>
               <!-- Dropdown - User Information -->
             </li>
@@ -76,8 +87,8 @@
                       <th>STT</th>
                       <th>Tên nhân viên</th>
                       <th>Tên đăng nhập</th>
+                       <th>Quyền</th>
                       <th>Mật khẩu</th>
-                      <th>Quyền</th>
                       <th>Xem công việc</th>
                     </tr>
                   </thead>
@@ -116,6 +127,7 @@
 
   </div>
   <!-- End of Page Wrapper -->
+    </form>
 
 </body>
 
