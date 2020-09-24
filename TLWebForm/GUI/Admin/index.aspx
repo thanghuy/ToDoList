@@ -31,7 +31,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ThemCongViec.aspx">
+        <a class="nav-link" href="DanhSachCongViec.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3">Danh sách công việc</span>
         </a>
       </li>
