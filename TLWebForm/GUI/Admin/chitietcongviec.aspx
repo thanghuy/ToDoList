@@ -31,7 +31,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ThemCongViec.aspx">
+        <a class="nav-link" href="DanhSachCongViec.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3">Danh sách công việc</span>
         </a>
       </li>
@@ -100,9 +100,9 @@
                         <span class="badge badge-primary">Đang làm</span>
                       </td>
                       <td>
-                        <button type="button" class="btn btn-primary btn-icon-split" data-toggle="modal" data-target="#updateJobNV" >
+                        <a href="CapNhapCV.aspx?id=1" class="btn btn-primary btn-icon-split">
                           <span class="text">Sửa</span>
-                        </button>
+                        </a>
         
                         <a href="#" class="btn btn-danger btn-circle">
                             <span class="text">Xóa</span>
@@ -110,44 +110,6 @@
                       </td>
                     </tr>
                   </tbody>
-                  <div class="modal fade" id="updateJobNV" tabindex="-1" aria-labelledby="updateJobNVLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="updateJobNVLabel">Sửa công việc</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Ngày bắt đầu</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Ngày kết thúc</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Người làm chung</label>
-                                  <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>Huy Thắng</option>
-                                    <option>Trịnh Đưc Hiếu</option>
-                                  </select>
-                                </div>
-                                <div class="form-group">
-                                  <label for="exampleInputEmail1">Bình luận</label>
-                                  <input type="text" class="form-control">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                            <button type="button" class="btn btn-primary">Lưu</button>
-                        </div>
-                    </div>
-                  </div>
                 </table>
               </div>
               <nav aria-label="...">

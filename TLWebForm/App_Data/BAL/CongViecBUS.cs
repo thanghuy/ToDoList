@@ -26,6 +26,7 @@ namespace TLWebForm.App_Data.BAL
             }
         }
 
+
         public bool AssignCongViec(string idCongViec, string idNhanVien, string idPartner)
         {
             if((int.Parse(idNhanVien)) <= 0 || (int.Parse(idCongViec)) <= 0)
@@ -52,7 +53,10 @@ namespace TLWebForm.App_Data.BAL
             service.AssignNhanVienToCongViec(idCongViec, idNhanVien);
             service.AssignPartnerToCongViec(idCongViec, idPartner);
             return true;
-            
+        }
+        public void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
+        {
+            service.InsertJob(ten, timeStart, timeEnd, partner, phamvi);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace TLWebForm.GUI.Admin
 {
 
 
-    public partial class Test
+    public partial class CapNhapCV
     {
 
         /// <summary>
@@ -24,66 +24,48 @@ namespace TLWebForm.GUI.Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm demo1;
 
         /// <summary>
-        /// tenCongViec control.
+        /// dateS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText tenCongViec;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateS;
 
         /// <summary>
-        /// dateStart control.
+        /// dateE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateStart;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateE;
 
         /// <summary>
-        /// dateEnd control.
+        /// idP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateEnd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox idP;
 
         /// <summary>
-        /// idPartner control.
+        /// comment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox idPartner;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText comment;
 
         /// <summary>
-        /// filePath control.
+        /// Button3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile filePath;
-
-        /// <summary>
-        /// phamVi control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect phamVi;
-
-        /// <summary>
-        /// Button1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button Button3;
     }
 }

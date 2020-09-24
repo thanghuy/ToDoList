@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ThemCongViec.aspx.cs" Inherits="TLWebForm.GUI.Admin.Test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CapNhapCV.aspx.cs" Inherits="TLWebForm.GUI.Admin.CapNhapCV" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Thêm công việc</title>
+    <title>Cập nhập công việc</title>
     <link href="../../Content/sb-admin-2.css" rel="stylesheet" />
     <link href="../../Content/style.css" rel="stylesheet" />
 </head>
@@ -69,39 +69,28 @@
                 <div class="demo">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Thêm công việc</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Cập nhập công việc</h5>
                     </div>
                     <div class="modal-body">
                         <form runat="server" id="demo1" method="post">
                             <div class="form-group">
-                                <label>Tên công việc</label>
-                                <input runat="server" type="text" class="form-control" id="tenCongViec"/>
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày bắt đầu</label>
-                                <input runat="server" type="date" class="form-control" id="dateStart"/>
+                                <input runat="server" type="date" class="form-control" id="dateS"/>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày kết thúc</label>
-                                <input runat="server" type="date" class="form-control" id="dateEnd"/>
+                                <input runat="server" type="date" class="form-control" id="dateE"/>
                             </div>
                             <div class="form-check">  
-                                <input runat="server" type="checkbox" class="form-check-input" id="idPartner"/>
-                                <label class="form-check-label" >Partner</label>
+                                <input runat="server" type="checkbox" class="form-check-input" id="idP"/>
+                                <label class="form-check-label" value="1">Partner</label>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">File</label>
-                                <input runat="server" type="file" class="form-control" id="filePath"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Phạm vi</label>
-                                <select runat="server" class="form-control" id="phamVi">
-                                  <option value="true">Public</option>
-                                  <option value="false">Private</option>
-                                </select>
+                                <label for="exampleInputEmail1">Bình luận</label>
+                                <input runat="server" type="text"  class="form-control" id="comment"/>
                             </div>
                             <div class="modal-footer">
-                                <asp:Button ID="Button1" runat="server" Text="Thêm công việc" OnClientClick="Button2_Click" OnClick="Button1_Click" class="btn btn-primary"  />
+                                <asp:Button ID="Button3" runat="server" Text="Cập nhập công việc" OnClientClick="Capnhap_click" OnClick="Button1_Click" class="btn btn-primary"  />
                             </div>
                         </form>
                     </div>
@@ -118,11 +107,5 @@
     <!-- End of Content Wrapper -->
 
   </div>
-  <!-- End of Page Wrapper -->
-
-
 </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
