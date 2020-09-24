@@ -33,8 +33,25 @@ namespace TLWebForm.GUI.Admin
                     table.Append("</tr>");
                 }
                 showNV.Controls.Add(new Literal { Text = table.ToString() });
+                if (!string.IsNullOrEmpty(Session["user"] as string))
+                {
+                    var myStr = Session["user"] as String;
+                    userName.Controls.Add(new Literal { Text = myStr.ToString() });
+                }
+                else
+                {
+                    Response.Redirect("../Login.aspx");
+                }
             }
 
+        }
+
+        protected void ButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("user");
+            Session.Remove("MaNV");
+            Session.Remove("Quyen");
+            Response.Redirect("../Login.aspx");
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using TLWebForm.App_Data.DAL;
+using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.App_Data.BAL
 {
@@ -13,7 +14,6 @@ namespace TLWebForm.App_Data.BAL
         public string FullName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string AvatarPath { get; set; }
         public bool IsManager { get; set; }
         private NhanVienAccess service = new NhanVienAccess();
         public NhanVienBUS()
@@ -50,6 +50,10 @@ namespace TLWebForm.App_Data.BAL
         public bool Login(string email, string password)
         {
             return service.Login(email, password);
+        }
+        public List<NhanVienDTO> getLoginInfo(string email, string password)
+        {
+            return service.GetLoginInfo(email,password);
         }
     }
 }
