@@ -67,7 +67,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             return list;
         }
 
-        internal List<CongViecDTO> GetAllCongViec()
+        public List<CongViecDTO> GetAllCongViec()
         {
             List<CongViecDTO> list = new List<CongViecDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -101,7 +101,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             return list;
         }
 
-        internal void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
+        public void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -123,6 +123,11 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
                     Console.WriteLine(cmd.ExecuteNonQuery());
                 }
             }
+        }
+
+        public void EditJob(string idCongViec, string ten, string timeStart, string timeEnd, string partner, bool phamVi)
+        {
+
         }
 
         public void UpdateFinishDate(string id, string date)
