@@ -55,5 +55,10 @@ namespace TLWebForm.App_Data.BAL
         {
             return service.GetLoginInfo(email,password);
         }
+
+        public List<NhanVienDTO> allNV()
+        {
+            return service.allNV();
+        }
     }
 }

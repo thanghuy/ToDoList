@@ -76,11 +76,9 @@
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Chọn công việc</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
-                                  <option>CV1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
+                                  
+                                    <asp:PlaceHolder ID="getAllCV" runat="server"></asp:PlaceHolder>
+
                                 </select>
                             </div>
                             <div class="form-group">

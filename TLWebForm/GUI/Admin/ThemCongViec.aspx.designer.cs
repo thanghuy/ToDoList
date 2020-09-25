@@ -51,13 +51,13 @@ namespace TLWebForm.GUI.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl dateEnd;
 
         /// <summary>
-        /// idPartner control.
+        /// allNhanVien control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputCheckBox idPartner;
+        protected global::System.Web.UI.WebControls.PlaceHolder allNhanVien;
 
         /// <summary>
         /// filePath control.

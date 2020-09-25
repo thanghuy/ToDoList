@@ -24,6 +24,15 @@ namespace TLWebForm.GUI.Admin
         protected global::System.Web.UI.HtmlControls.HtmlForm demo1;
 
         /// <summary>
+        /// getAllCV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder getAllCV;
+
+        /// <summary>
         /// dateS control.
         /// </summary>
         /// <remarks>
