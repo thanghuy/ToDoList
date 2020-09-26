@@ -55,5 +55,7 @@ namespace TLWebForm.App_Data.BAL
         {
             return service.GetLoginInfo(email,password);
         }
+
+
     }
 }
