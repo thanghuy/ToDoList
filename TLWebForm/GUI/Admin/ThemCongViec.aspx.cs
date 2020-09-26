@@ -17,10 +17,12 @@ namespace TLWebForm.GUI.Admin
         protected void Button1_Click(object sender, EventArgs e)
         {
             string ten = tenCongViec.Value;
+            String timeStart = DateTime.Parse(dateStart.Value).ToString();
             String timeEnd = DateTime.Parse(dateEnd.Value).ToString();
             String partner = idPartner.Value;
             String phamvi = phamVi.Value;
-            Console.WriteLine(ten + timeEnd + partner + phamVi);
+            // gọi hàm xử ly trên server
+            Console.WriteLine(timeStart,ten + timeEnd + partner + phamVi);
         }
     }
 }

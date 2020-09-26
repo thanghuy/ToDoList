@@ -178,6 +178,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\xuly.js" />
     <Content Include="Site.Master" />
     <Content Include="Test.aspx" />
     <Content Include="GUI\UpdateNhanVien.aspx" />
