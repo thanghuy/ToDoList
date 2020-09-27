@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TLWebForm.App_Data.BAL;
-using TLWebForm.App_Start;
+using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.GUI.Admin
 {

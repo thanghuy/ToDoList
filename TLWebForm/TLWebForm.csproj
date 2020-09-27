@@ -116,7 +116,10 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Compile Include="App_Data\BAL\CongViecBUS.cs" />
+    <Compile Include="App_Data\BAL\PhanCongBUS.cs" />
+    <Compile Include="App_Data\DAL\PhanCongAccess.cs" />
     <Compile Include="App_Data\DTO\NhanVienDTO.cs" />
+    <Compile Include="App_Data\DTO\CongViecNvDTO.cs" />
     <Content Include="Content\sb-admin-2.css" />
     <Content Include="Content\style.css" />
     <Content Include="GUI\AddNhanVien.aspx" />
@@ -149,6 +152,8 @@
     <Content Include="GUI\DanhSachNhanVien.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="GUI\Login.aspx" />
+    <Content Include="GUI\NhanVien\DanhSachAllCongViec.aspx" />
+    <Content Include="GUI\NhanVien\DanhSachCongViecNv.aspx" />
     <Content Include="GUI\NhanVien\index.aspx" />
     <Content Include="GUI\NhanVien\Demo.aspx" />
     <Content Include="GUI\ThemCongViec.aspx" />
@@ -290,6 +295,20 @@
     </Compile>
     <Compile Include="GUI\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NhanVien\DanhSachAllCongViec.aspx.cs">
+      <DependentUpon>DanhSachAllCongViec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\NhanVien\DanhSachAllCongViec.aspx.designer.cs">
+      <DependentUpon>DanhSachAllCongViec.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NhanVien\DanhSachCongViecNv.aspx.cs">
+      <DependentUpon>DanhSachCongViecNv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\NhanVien\DanhSachCongViecNv.aspx.designer.cs">
+      <DependentUpon>DanhSachCongViecNv.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\NhanVien\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

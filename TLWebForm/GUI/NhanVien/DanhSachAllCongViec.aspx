@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="DanhSachCongViec.aspx.cs" Inherits="TLWebForm.GUI.Admin.DanhSachCongViec" %>
+﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="DanhSachAllCongViec.aspx.cs" Inherits="TLWebForm.GUI.NhanVien.DanhSachAllCongViec" %>
 
 <!DOCTYPE html>
 
@@ -26,12 +26,12 @@
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="index.aspx">
-          <span class="nav-link-title sidebar-brand-text mx-3">Danh sách nhân viên</span>
+          <span class="nav-link-title sidebar-brand-text mx-3" href="index.aspx">Danh sách nhân viên</span>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="DanhSachCongViec.aspx">
-          <span class="nav-link-title sidebar-brand-text mx-3">Danh sách công việc</span>
+          <span class="nav-link-title sidebar-brand-text mx-3" href="DanhSachCongViecNv.aspx">Danh sách công việc</span>
         </a>
       </li>
       <!-- Nav Item - Utilities Collapse Menu -->
@@ -51,7 +51,6 @@
             <li class="nav-item dropdown no-arrow">
               <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
                 <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
-                  <asp:Button ID="ButtonLogout" type="submit" class="btn btn-primary border mr-2" Text="Đăng xuất" OnClick="ButtonLogout_Click"/>
               </span>
               <!-- Dropdown - User Information -->
             </li>
@@ -103,10 +102,13 @@
                   <thead>
                     <tr class="column-title">
                       <th>STT</th>
+                      <th>Id công việc</th>
                       <th>Tên công việc</th>
-                      <th>Người đang làm</th>
+                      <th>Người làm chung</th>
                       <th>Ngày bắt đầu</th>
                       <th>Ngày kết thúc</th>
+                      <th>Phạm vi</th>
+                      <th>File</th>
                       <th>Trạng thái</th>
                     </tr>
                   </thead>
@@ -114,7 +116,7 @@
                       <asp:PlaceHolder ID="placeholder" runat="server" />
                     <tr>
                         
-                        <asp:PlaceHolder ID="showCV" runat="server"></asp:PlaceHolder>
+                        <asp:PlaceHolder ID="showCV" runat="server" ></asp:PlaceHolder>
 
                     </tr>
                   </tbody>

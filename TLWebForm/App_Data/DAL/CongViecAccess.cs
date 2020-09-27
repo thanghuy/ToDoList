@@ -1,13 +1,8 @@
-﻿using Dapper;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using TLWebForm.App_Start;
-using TLWebForm.GUI.Admin;
-using TLWebForm.GUI.NhanVien;
+using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.App_Data.DAL
 {
@@ -29,6 +24,42 @@ namespace TLWebForm.App_Data.DAL
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
+        {
+            List<CongViecNvDTO> list = new List<CongViecNvDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select * from CongViec where IdNhanVien = " + idNhanVien;
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            CongViecNvDTO cv = new CongViecNvDTO();
+                            cv.Id = Convert.ToInt32(dr["Id"].ToString());
+                            cv.NgayBatDau = dr["StartDate"].ToString();
+                            cv.NgayKetThuc = dr["EndDate"].ToString();
+                            cv.PhamVi = Convert.ToBoolean(dr["IsPublic"]);
+                            cv.IdPartner = dr["PartnerNhanVien"].ToString();
+                            cv.Status = Convert.ToBoolean(dr["Status"]);
+                            cv.TenCongViec = dr["NameCongViec"].ToString();
+                            //cv.BinhLuan = dr[6].ToString();
+                            cv.FileDinhKem = dr["Files"].ToString();
+                            cv.IsVisible = Convert.ToBoolean(dr["IsVisible"]);
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;
         }
 
         internal List<CongViecDTO> GetAllCongViec()
@@ -105,6 +136,42 @@ namespace TLWebForm.App_Data.DAL
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        internal List<CongViecNvDTO> GetAllCongViecPublic()
+        {
+            List<CongViecNvDTO> list = new List<CongViecNvDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select * from CongViec where IsPublic=1";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            CongViecNvDTO cv = new CongViecNvDTO();
+                            cv.Id = Convert.ToInt32(dr["Id"].ToString());
+                            cv.NgayBatDau = dr["StartDate"].ToString();
+                            cv.NgayKetThuc = dr["EndDate"].ToString();
+                            cv.PhamVi = Convert.ToBoolean(dr["IsPublic"]);
+                            cv.IdPartner = dr["PartnerNhanVien"].ToString();
+                            cv.Status = Convert.ToBoolean(dr["Status"]);
+                            cv.TenCongViec = dr["NameCongViec"].ToString();
+                            //cv.BinhLuan = dr[6].ToString();
+                            cv.FileDinhKem = dr["Files"].ToString();
+                            cv.IsVisible = Convert.ToBoolean(dr["IsVisible"]);
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;
         }
 
         public void AssignNhanVienToCongViec(string idCongViec, string idNhanVien)
