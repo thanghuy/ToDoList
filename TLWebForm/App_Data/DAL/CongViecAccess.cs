@@ -140,6 +140,7 @@ namespace TLWebForm.App_Data.DAL
 
         internal List<CongViecNvDTO> GetAllCongViecPublic()
         {
+            //Ignore nhầm file này trong cái commit cũ nên thiếu mất method này
             List<CongViecNvDTO> list = new List<CongViecNvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
             using (SqlConnection con = new SqlConnection(connectionString))
