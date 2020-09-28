@@ -14,9 +14,9 @@ namespace TLWebForm.App_Data.DTO
         public bool PhamVi { get; set; }
         public string FileDinhKem { get; set; }
         public string BinhLuan { get; set; }
-        public bool Status { get; set; }
+        public int Status { get; set; }
 
-        public CongViecDTO(int id, string tenCongViec, string ngayBatDau, string ngayKetThuc, bool phamVi, string fileDinhKem, string binhLuan, bool status)
+        public CongViecDTO(int id, string tenCongViec, string ngayBatDau, string ngayKetThuc, bool phamVi, string fileDinhKem, string binhLuan, int status)
         {
             Id = id;
             TenCongViec = tenCongViec;

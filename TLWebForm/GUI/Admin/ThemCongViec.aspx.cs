@@ -44,17 +44,23 @@ namespace TLWebForm.GUI.Admin
                 
                 foreach(NhanVienDTO nv in list)
                 {
-                    table.Append("<input type='checkbox' value='"+nv.idNV+"' id='"+nv.TenNV+"'/>");
-                    table.Append("<label class='form-check-label'>"+nv.TenNV+"</label>");
+                    table.Append(
+                        "<div class='form-check'>"
+                                      +"<input class='form-check-input' type='checkbox' value='"+nv.idNV+"' id='nv0'/>"
+                                      +"<label class='form-check-label' for='defaultCheck1'>"
+                                      +nv.TenNV
+                                      +"</label>"
+                                    +"</div>"
+                        );
                 }
-                //allNhanVien.Controls.Add(new Literal { Text = table.ToString() });
+                allNhanVien.Controls.Add(new Literal { Text = table.ToString() });
                 
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            CongViecBUS service = new CongViecBUS();
             //Thêm công việc vào chỗ này
             string ten = tenCongViec.Value;
             String timeStart = DateTime.Parse(dateStart.Value).ToString();
@@ -63,6 +69,11 @@ namespace TLWebForm.GUI.Admin
             String phamvi = phamVi.Value;
             // gọi hàm xử ly trên server
             Console.WriteLine(timeStart,ten + timeEnd + partner + phamVi);
+            
+            if (service.themCongViec(ten, timeStart, timeEnd, partner, phamvi))
+            {
+                Response.Redirect("./DanhSachCongViec.aspx");
+            }
         }
     }
 }
