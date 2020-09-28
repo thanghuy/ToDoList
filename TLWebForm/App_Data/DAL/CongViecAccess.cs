@@ -105,7 +105,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             {
                 connection.Open();
                 string query = @"insert into CongViec(NameCongViec,IdNhanVien,StartDate,EndDate,IsPublic,PartnerNhanVien,Files,Status,IsVisible)" +
-                                "values (@NameCongViec,@IdNhanVien,@StartDate,@EndDate,@IsPublic,@PartnerNhanVien,@Files,@Status,@IsVisible)";
+                                "values (@NameCongViec,@IdNhanVien,@StartDate,@EndDate,@IsPublic,@PartnerNhanVien,@Files,@Status,@IsVisible)"+ "; SELECT SCOPE_IDENTITY();";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@NameCongViec", ten);
@@ -118,10 +118,9 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
                     cmd.Parameters.AddWithValue("@Status",0);
                     cmd.Parameters.AddWithValue("@IsVisible", true);
                     System.Diagnostics.Debug.WriteLine(query);
-                    Console.WriteLine(cmd.ExecuteNonQuery());
+                    return cmd.ExecuteScalar().ToString();
                 }
             }
-            return null;
         }
 
         public List<CongViecDTO> GetAllCongViec()
