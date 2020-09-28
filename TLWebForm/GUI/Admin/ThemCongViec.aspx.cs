@@ -47,7 +47,7 @@ namespace TLWebForm.GUI.Admin
                     table.Append("<input type='checkbox' value='"+nv.idNV+"' id='"+nv.TenNV+"'/>");
                     table.Append("<label class='form-check-label'>"+nv.TenNV+"</label>");
                 }
-                allNhanVien.Controls.Add(new Literal { Text = table.ToString() });
+                //allNhanVien.Controls.Add(new Literal { Text = table.ToString() });
                 
             }
         }
