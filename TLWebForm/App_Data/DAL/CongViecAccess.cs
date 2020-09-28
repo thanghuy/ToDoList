@@ -4,10 +4,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using TLWebForm.App_Data.DTO;
-using TLWebForm.App_Start;
-using TLWebForm.GUI.Admin;
-using TLWebForm.GUI.NhanVien;
-using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.App_Data.DAL
 {

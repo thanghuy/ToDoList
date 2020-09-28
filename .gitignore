@@ -124,3 +124,5 @@ TLWebForm/obj/Debug/TLWebForm.csproj.CoreCompileInputs.cache
 TLWebForm/obj/Debug/TLWebForm.csprojAssemblyReference.cache
 TLWebForm/obj/Debug/TLWebForm.dll
 TLWebForm/obj/Debug/TLWebForm.pdb
+TLWebForm/bin/TLWebForm.pdb
+*.dll

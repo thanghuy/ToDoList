@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TLWebForm.App_Data.BAL;
-using TLWebForm.App_Start;
+using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.GUI.Admin
 {

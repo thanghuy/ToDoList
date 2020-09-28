@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using TLWebForm.App_Data.DAL;
 using TLWebForm.App_Data.DTO;
-using TLWebForm.App_Start;
-using TLWebForm.GUI.Admin;
 
 namespace TLWebForm.App_Data.BAL
 {
