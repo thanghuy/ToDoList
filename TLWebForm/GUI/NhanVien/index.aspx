@@ -26,12 +26,12 @@
         <hr class="sidebar-divider my-0">
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="index.aspx">
+        <a class="nav-link" href="DanhSachCongViecNv.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3">Danh sách công việc</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="tatcacongviec.html">
+        <a class="nav-link" href="DanhSachAllCongViec.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3">Xem tất cả công việc</span>
         </a>
       </li>
