@@ -17,14 +17,16 @@ namespace TLWebForm.GUI.Admin
             if (!Page.IsPostBack)
             {
                 CongViecBUS service = new CongViecBUS();
-                List<CongViecDTO> list = service.GetAllCongViec();
+                string idCv = Request.QueryString["id"];
+                string idNV = Request.QueryString["idNV"];
+                //List<CongViecDTO> list = service.GetAllCongViecNVcv(idCv,idNV);
 
-                foreach (CongViecDTO cv in list)
+                /*foreach (CongViecDTO cv in list)
                 {
                     table.Append("<option>" + cv.TenCongViec + "</option>");
                 }
 
-                getAllCV.Controls.Add(new Literal { Text = table.ToString() });
+                getAllCV.Controls.Add(new Literal { Text = table.ToString() });*/
             }
         }
 

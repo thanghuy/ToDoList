@@ -32,7 +32,10 @@ namespace TLWebForm.App_Data.BAL
         {
             return service.GetAllCongViec();
         }
-
+        internal List<CongViecDTO> GetAllCongViecNVcv(string idCv, string idNv)
+        {
+            return service.GetAllCongViecNVcv(idCv, idNv);
+        }
         internal List<CongViecNvDTO> GetAllCongViecPublic()
         {
             return service.GetAllCongViecPublic();
@@ -74,7 +77,7 @@ namespace TLWebForm.App_Data.BAL
         {
             if(status == 0)
             {
-                return "<td ><span class='badge badge-primary'>" + "Đang làm" + "</span></td>";
+                return "<td><span class='badge badge-primary'>" + "Đang làm" + "</span></td>";
             }
             if(status == 1)
             {

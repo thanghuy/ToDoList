@@ -16,6 +16,7 @@ namespace TLWebForm.App_Data.DTO
         public string Comment{ get; set; }
         public int Status { get; set; }
         public string TenCongViec{ get; set; }
+        public string Files { get; set; }
     }
 
 }
