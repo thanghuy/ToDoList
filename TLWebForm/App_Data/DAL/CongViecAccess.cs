@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using TLWebForm.App_Data.DTO;
-using TLWebForm.App_Start;
-using TLWebForm.GUI.Admin;
-using TLWebForm.GUI.NhanVien;
 using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.App_Data.DAL
@@ -89,7 +84,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
                             cv.NgayKetThuc = dr["EndDate"].ToString();
                             cv.PhamVi = Convert.ToBoolean(dr["IsPublic"]);
                             cv.IdPartner = dr["PartnerNhanVien"].ToString();
-                            cv.Status = Convert.ToBoolean(dr["Status"]);
+                            cv.Status = Convert.ToInt32(dr["Status"]);
                             cv.TenCongViec = dr["NameCongViec"].ToString();
                             //cv.BinhLuan = dr[6].ToString();
                             cv.FileDinhKem = dr["Files"].ToString();
@@ -202,7 +197,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
                             cv.NgayKetThuc = dr["EndDate"].ToString();
                             cv.PhamVi = Convert.ToBoolean(dr["IsPublic"]);
                             cv.IdPartner = dr["PartnerNhanVien"].ToString();
-                            cv.Status = Convert.ToBoolean(dr["Status"]);
+                            cv.Status = Convert.ToInt32(dr["Status"]);
                             cv.TenCongViec = dr["NameCongViec"].ToString();
                             //cv.BinhLuan = dr[6].ToString();
                             cv.FileDinhKem = dr["Files"].ToString();

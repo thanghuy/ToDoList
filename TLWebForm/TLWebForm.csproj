@@ -115,9 +115,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Compile Include="App_Data\BAL\ChiTietCV.cs" />
     <Compile Include="App_Data\BAL\CongViecBUS.cs" />
     <Compile Include="App_Data\BAL\PhanCongBUS.cs" />
     <Compile Include="App_Data\DAL\PhanCongAccess.cs" />
+    <Compile Include="App_Data\DTO\ChitTietCvDTO.cs" />
     <Compile Include="App_Data\DTO\NhanVienDTO.cs" />
     <Compile Include="App_Data\DTO\CongViecNvDTO.cs" />
     <Content Include="Content\sb-admin-2.css" />

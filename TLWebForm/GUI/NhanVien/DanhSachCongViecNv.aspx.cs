@@ -43,8 +43,9 @@ namespace TLWebForm.GUI.NhanVien
                             table.Append("<td>" + cv.NgayKetThuc + "</td>");
                             table.Append("<td>" + cv.PhamVi + "</td>");
                             table.Append("<td>" + cv.FileDinhKem + "</td>");
-                            tableAppend(table, cv.Status);
-                            table.Append("/<tr>");
+                            //tableAppend(table, cv.Status);
+                            table.Append(service.CheckStatusCv(cv.Status));
+                            table.Append("</tr>");
                         }
                     }
 

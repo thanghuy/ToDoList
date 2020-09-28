@@ -15,10 +15,10 @@ namespace TLWebForm.App_Data.DTO
         public string IdPartner { get; set; }
         public string FileDinhKem { get; set; }
         public string BinhLuan { get; set; }
-        public bool Status { get; set; }
+        public int Status { get; set; }
         public bool IsVisible { get; set; }
 
-        public CongViecNvDTO(int id, string tenCongViec, string ngayBatDau, string ngayKetThuc, bool phamVi, string idPartner, string fileDinhKem, string binhLuan, bool status, bool isVisible)
+        public CongViecNvDTO(int id, string tenCongViec, string ngayBatDau, string ngayKetThuc, bool phamVi, string idPartner, string fileDinhKem, string binhLuan, int status, bool isVisible)
         {
             Id = id;
             TenCongViec = tenCongViec;

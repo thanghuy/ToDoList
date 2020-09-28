@@ -52,8 +52,8 @@ namespace TLWebForm.GUI.NhanVien
 
                             table.Append("<td>" + "Public" + "</td>");
                             table.Append("<td>" + cv.FileDinhKem + "</td>");
-                            tableAppend(table, cv.Status);
-                            table.Append("/<tr>");
+                            //tableAppend(table, cv.Status);
+                            table.Append("</tr>");
                         }
                     }
 
