@@ -54,7 +54,7 @@ namespace TLWebForm.GUI.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            CongViecBUS service = new CongViecBUS();
             //Thêm công việc vào chỗ này
             string ten = tenCongViec.Value;
             String timeStart = DateTime.Parse(dateStart.Value).ToString();
@@ -63,6 +63,8 @@ namespace TLWebForm.GUI.Admin
             String phamvi = phamVi.Value;
             // gọi hàm xử ly trên server
             Console.WriteLine(timeStart,ten + timeEnd + partner + phamVi);
+
+            service.themCongViec(ten, timeStart, timeEnd, partner, phamvi);
         }
     }
 }

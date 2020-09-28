@@ -98,6 +98,32 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             return list;
         }
 
+        internal string themCongViec(string ten, string timeStart, string timeEnd, string phamvi)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"insert into CongViec(NameCongViec,IdNhanVien,StartDate,EndDate,IsPublic,PartnerNhanVien,Files,Status,IsVisible)" +
+                                "values (@NameCongViec,@IdNhanVien,@StartDate,@EndDate,@IsPublic,@PartnerNhanVien,@Files,@Status,@IsVisible)";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@NameCongViec", ten);
+                    cmd.Parameters.AddWithValue("@IdNhanVien", "");
+                    cmd.Parameters.AddWithValue("@StartDate", timeStart);
+                    cmd.Parameters.AddWithValue("@EndDate", timeEnd);
+                    cmd.Parameters.AddWithValue("@IsPublic", phamvi);
+                    cmd.Parameters.AddWithValue("@PartnerNhanVien", "");
+                    cmd.Parameters.AddWithValue("@Files", "");
+                    cmd.Parameters.AddWithValue("@Status",0);
+                    cmd.Parameters.AddWithValue("@IsVisible", true);
+                    System.Diagnostics.Debug.WriteLine(query);
+                    Console.WriteLine(cmd.ExecuteNonQuery());
+                }
+            }
+            return null;
+        }
+
         public List<CongViecDTO> GetAllCongViec()
         {
             List<CongViecDTO> list = new List<CongViecDTO>();
