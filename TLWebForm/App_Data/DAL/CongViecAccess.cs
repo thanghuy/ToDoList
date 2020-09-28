@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using TLWebForm.App_Data.DTO;
+using TLWebForm.App_Start;
+using TLWebForm.GUI.Admin;
+using TLWebForm.GUI.NhanVien;
 using TLWebForm.App_Data.DTO;
 
 namespace TLWebForm.App_Data.DAL
@@ -26,7 +31,42 @@ namespace TLWebForm.App_Data.DAL
             }
         }
 
-        internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
+                internal List<ChitTietCvDTO> getChiTiet(int id)
+        {
+            List<ChitTietCvDTO> list = new List<ChitTietCvDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select nv.id,cv.Id, cv.TenCongViec,cv.NgayBatDau,cv.NgayKetThuc,cv.PhamVi,pc.comment, cv.Status from congviec cv,nhanvien nv,phancong pc
+where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            ChitTietCvDTO cv = new ChitTietCvDTO();
+                            cv.idnhanvien = dr.GetInt32(0);
+                            cv.idcongviec = dr.GetInt32(1);
+                            cv.TenCongViec = dr.GetString(2);
+                            cv.NgayBatDau = dr.GetDateTime(3).ToString();
+                            cv.NgayKetThuc = dr.GetDateTime(4).ToString();
+                            cv.PhamVi = dr.GetBoolean(5);
+                            cv.Comment = dr.GetString(6);
+                            cv.Status = dr.GetInt32(7);
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
+                internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
         {
             List<CongViecNvDTO> list = new List<CongViecNvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -96,7 +136,7 @@ namespace TLWebForm.App_Data.DAL
             return list;
         }
 
-        public void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
+        internal void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -118,11 +158,6 @@ namespace TLWebForm.App_Data.DAL
                     Console.WriteLine(cmd.ExecuteNonQuery());
                 }
             }
-        }
-
-        public void EditJob(string idCongViec, string ten, string timeStart, string timeEnd, string partner, bool phamVi)
-        {
-
         }
 
         public void UpdateFinishDate(string id, string date)

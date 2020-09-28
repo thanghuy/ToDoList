@@ -23,13 +23,13 @@ namespace TLWebForm.GUI.Admin
                 foreach(CongViecDTO cv in list)
                 {
                     table.Append("<tr>");
-                        table.Append("<td>"+cv.Id+"</td>");
-                          table.Append("<td>" + cv.TenCongViec + "</td>");
+                    table.Append("<td>"+cv.Id+"</td>");
+                    table.Append("<td>" + cv.TenCongViec + "</td>");
                     table.Append("<td>" + "None Available" + "</td>");
                     table.Append("<td>" + cv.NgayBatDau + "</td>");
                     table.Append("<td>" + cv.NgayKetThuc + "</td>");
                     tableAppend(table,cv.Status);
-                    table.Append("/<tr>");
+                    table.Append("</tr>");
 
                 }
 

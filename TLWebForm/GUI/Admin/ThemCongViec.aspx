@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ThemCongViec.aspx.cs" Inherits="TLWebForm.GUI.Admin.Test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ThemCongViec.aspx.cs" Inherits="TLWebForm.GUI.Admin.Test" %>
 
 <!DOCTYPE html>
 
@@ -85,10 +85,18 @@
                                 <label for="exampleInputEmail1">Ngày kết thúc</label>
                                 <input runat="server" type="date" class="form-control" id="dateEnd"/>
                             </div>
+                            
                             <div class="form-check">  
-                                <input runat="server" type="checkbox" class="form-check-input" id="idPartner"/>
-                                <label class="form-check-label" >Partner</label>
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                Thêm nhân viên
+                              </button>
+                                <div class="collapse" id="collapseExample">
+                                  <div class="card">
+                                        <asp:PlaceHolder ID="allNhanVien" runat="server"></asp:PlaceHolder>
+                                  </div>
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">File</label>
                                 <input runat="server" type="file" class="form-control" id="filePath"/>

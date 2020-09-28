@@ -47,6 +47,63 @@ namespace TLWebForm.App_Data.DAL
                 //return Convert.ToBoolean();
             }
         }
+
+        public List<NhanVienDTO> allNV()
+        {
+            /*List<CongViecDTO> list = new List<CongViecDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select * from CongViec";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            CongViecDTO cv = new CongViecDTO();
+                            cv.Id = Convert.ToInt32(dr[0].ToString());
+                            cv.NgayBatDau = dr[2].ToString();
+                            cv.NgayKetThuc = dr[3].ToString();
+                            cv.PhamVi = (bool)dr["PhamVi"];
+                            cv.Status = (bool)dr["Status"];
+                            cv.TenCongViec = dr[1].ToString();
+                            cv.BinhLuan = dr[6].ToString();
+                            cv.FileDinhKem = dr[5].ToString();
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;*/
+            List<NhanVienDTO> list = new List<NhanVienDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                string query = @"select * from NhanVien";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            NhanVienDTO nv = new NhanVienDTO();
+                            nv.idNV = Convert.ToInt32(dr[0].ToString());
+                            nv.TenNV = dr[1].ToString();
+                            list.Add(nv);
+                        }
+                    }
+                }
+
+            }
+            return list;
+        }
+
         public List<NhanVienDTO> GetLoginInfo(string email, string password)
         {
             List<NhanVienDTO> list = new List<NhanVienDTO>(); 
