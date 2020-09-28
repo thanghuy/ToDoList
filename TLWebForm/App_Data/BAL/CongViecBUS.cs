@@ -69,5 +69,22 @@ namespace TLWebForm.App_Data.BAL
         {
             service.InsertJob(ten, timeStart, timeEnd, partner, phamvi);
         }
+
+        public string CheckStatusCv(int status)
+        {
+            if(status == 0)
+            {
+                return "<td ><span class='badge badge-primary'>" + "Đang làm" + "</span></td>";
+            }
+            if(status == 1)
+            {
+                return "<td><span class='badge badge-success'>" + "Hoàn thành" + "</span></td>";
+            }
+            if(status == 2)
+            {
+                return "<td><span class='badge badge-danger'>" + "Trễ hẹn" + "</span></td>";
+            }
+            return "";
+        }
     }
 }
