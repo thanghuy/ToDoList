@@ -1,0 +1,101 @@
+[33mcommit df2f8f48999cc1d076757bc2ee924ad9c068eb68[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Huy Thang <54946880+thanghuy@users.noreply.github.com>
+Date:   Sat Sep 26 08:40:10 2020 +0700
+
+    lay du lieu tu them cong viec
+
+[33mcommit 0eb4dd8a1053b44d511c0f4483b8576c5e6d3ca4[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Huy Thang <54946880+thanghuy@users.noreply.github.com>
+Date:   Fri Sep 25 21:15:05 2020 +0700
+
+    m
+
+[33mcommit a56334599f3117813b7476b136663b579fb738cd[m
+Merge: b817b5f 7c6569a
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 22:27:02 2020 +0700
+
+    Merge pull request #3 from ninhngochieu/Them-Cong-Viec
+    
+    Them cong viec
+
+[33mcommit 7c6569a254d15f40bed68578359b23de686c5011[m
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 22:25:29 2020 +0700
+
+    Sửa giao diện
+
+[33mcommit b817b5f4a740a364f92ff8ab8d814ecdcd58e26c[m
+Merge: 35b9f4e b89a09d
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 15:41:29 2020 +0700
+
+    Merge pull request #2 from dnhoangson/MarkStatus
+    
+    Mark status
+
+[33mcommit b89a09d728ea7b65a88610ab98f482619776e0df[m
+Merge: cd83fdd a109efc
+Author: dnhoangson <dnhoangson.danang@gmail.com>
+Date:   Wed Sep 23 15:39:44 2020 +0700
+
+    Merge branch 'MarkStatus' of https://github.com/dnhoangson/ToDoList into MarkStatus
+
+[33mcommit cd83fddf2320f05b8aaa22ef7919be40b16665cb[m
+Author: dnhoangson <dnhoangson.danang@gmail.com>
+Date:   Wed Sep 23 15:39:14 2020 +0700
+
+    Added CongViecAccess CongViecBUS
+    
+    MarkStatus với
+    status = true thì set status công việc là true và cập nhật NgayKetThuc là GETDATE()
+    
+    status = false thì set status công việc là false và cập nhật NgayKetThuc là NULL
+
+[33mcommit 35b9f4e284e580beb62516ccc707794a57bcd2f2[m[33m ([m[1;31morigin/demo[m[33m)[m
+Merge: 4bb9d07 a109efc
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 15:13:31 2020 +0700
+
+    Merge pull request #1 from dnhoangson/MarkStatus
+    
+    Add CongViecAccess
+
+[33mcommit a109efc811637b0c43aaaeb26116ffab4e68706f[m
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 15:12:39 2020 +0700
+
+    Xoá config
+
+[33mcommit 360dc9f827cabd1e42977e875fd17f75fefc2b2c[m
+Author: dnhoangson <dnhoangson.danang@gmail.com>
+Date:   Wed Sep 23 15:09:14 2020 +0700
+
+    Add CongViecAccess
+
+[33mcommit 4bb9d0727833c0a65a0c0959534667a57553c52b[m[33m ([m[1;31morigin/Them-Cong-Viec[m[33m)[m
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 00:57:25 2020 +0700
+
+    innitial
+
+[33mcommit c13a1353ba0c7a4141cd8b6ae72642c8b5a678a5[m
+Merge: 22f7b93 b817b5f
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 00:55:19 2020 +0700
+
+    Merge branch 'master' into Them-Cong-Viec
+
+[33mcommit 22f7b93e183ca579509c8bffe1dd605b90871b85[m
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 00:50:38 2020 +0700
+
+    Delete temp
+
+[33mcommit 3753635dc482e93d270e7ad2714900ae0be580fa[m
+Author: Ninh Ngoc Hieu <30309069+ninhngochieu@users.noreply.github.com>
+Date:   Wed Sep 23 00:41:45 2020 +0700
+
+    ignore .suo
+    
+    Bỏ qua những file ko cần thiết
