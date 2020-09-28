@@ -98,6 +98,24 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             return list;
         }
 
+        internal void insertPhanCong(string p, string id)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"insert into PhanCong(idcongviec,idnhanvien)" +
+                                "values (@idcongviec,@idnhanvien)";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@idcongviec", id);
+                    cmd.Parameters.AddWithValue("idnhanvien", p);
+                    System.Diagnostics.Debug.WriteLine(query);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
         internal string themCongViec(string ten, string timeStart, string timeEnd, string phamvi)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");

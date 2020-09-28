@@ -44,10 +44,16 @@ namespace TLWebForm.GUI.Admin
                 
                 foreach(NhanVienDTO nv in list)
                 {
-                    table.Append("<input type='checkbox' value='"+nv.idNV+"' id='"+nv.TenNV+"'/>");
-                    table.Append("<label class='form-check-label'>"+nv.TenNV+"</label>");
+                    table.Append(
+                        "<div class='form-check'>"
+                                      +"<input class='form-check-input' type='checkbox' value='"+nv.idNV+"' id='nv0'/>"
+                                      +"<label class='form-check-label' for='defaultCheck1'>"
+                                      +nv.TenNV
+                                      +"</label>"
+                                    +"</div>"
+                        );
                 }
-                //allNhanVien.Controls.Add(new Literal { Text = table.ToString() });
+                allNhanVien.Controls.Add(new Literal { Text = table.ToString() });
                 
             }
         }

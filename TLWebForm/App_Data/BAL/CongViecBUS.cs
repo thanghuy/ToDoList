@@ -88,9 +88,16 @@ namespace TLWebForm.App_Data.BAL
             return "";
         }
 
-        internal void themCongViec(string ten, string timeStart, string timeEnd, string partner, string phamvi)
+        internal bool themCongViec(string ten, string timeStart, string timeEnd, string partner, string phamvi)
         {
             string id = service.themCongViec(ten,timeStart,timeEnd,phamvi);
+            string[] ps = partner.Split(',');
+            foreach(var p in ps)
+            {
+                Console.WriteLine(p);
+                service.insertPhanCong(p, id);
+            }
+            return true;
         }
     }
 }
