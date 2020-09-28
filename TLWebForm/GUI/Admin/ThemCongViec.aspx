@@ -96,18 +96,7 @@
                                  </p>
                                 <div class="collapse" id="collapseExample">
                                   <div class="card card-body">
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="1" id="nv0" />
-                                      <label class="form-check-label" for="defaultCheck1">
-                                        Default checkbox
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" value="2" id="vn1" />
-                                      <label class="form-check-label" for="defaultCheck2">
-                                        Disabled checkbox
-                                      </label>
-                                    </div>
+                                      <asp:PlaceHolder ID="allNhanVien" runat="server"></asp:PlaceHolder>
                                   </div>
                                 </div>
                             </div>

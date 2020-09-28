@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TLWebForm.App_Data.DAL;
 using TLWebForm.App_Data.DTO;
 
@@ -85,6 +86,18 @@ namespace TLWebForm.App_Data.BAL
                 return "<td><span class='badge badge-danger'>" + "Trễ hẹn" + "</span></td>";
             }
             return "";
+        }
+
+        internal bool themCongViec(string ten, string timeStart, string timeEnd, string partner, string phamvi)
+        {
+            string id = service.themCongViec(ten,timeStart,timeEnd,phamvi);
+            string[] ps = partner.Split(',');
+            foreach(var p in ps)
+            {
+                Console.WriteLine(p);
+                service.insertPhanCong(p, id);
+            }
+            return true;
         }
     }
 }
