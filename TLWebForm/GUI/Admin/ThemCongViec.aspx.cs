@@ -69,8 +69,11 @@ namespace TLWebForm.GUI.Admin
             String phamvi = phamVi.Value;
             // gọi hàm xử ly trên server
             Console.WriteLine(timeStart,ten + timeEnd + partner + phamVi);
-
-            service.themCongViec(ten, timeStart, timeEnd, partner, phamvi);
+            
+            if (service.themCongViec(ten, timeStart, timeEnd, partner, phamvi))
+            {
+                Response.Redirect("./DanhSachCongViec.aspx");
+            }
         }
     }
 }

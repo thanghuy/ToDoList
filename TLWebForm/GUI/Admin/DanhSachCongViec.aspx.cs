@@ -37,9 +37,9 @@ namespace TLWebForm.GUI.Admin
             }
         }
 
-        private void tableAppend(StringBuilder table, bool status)
+        private void tableAppend(StringBuilder table, int status)
         {
-            _ = status == true ? table.Append("<td>" + "Đã hoàn thành" + "</td>") : table.Append("<td>" + "Chưa hoàn thành" + "</td>");
+            _ = status == 1 ? table.Append("<td>" + "Đã hoàn thành" + "</td>") : table.Append("<td>" + "Chưa hoàn thành" + "</td>");
         }
     }
 }
