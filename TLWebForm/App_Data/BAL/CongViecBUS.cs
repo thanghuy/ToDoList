@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.UI.HtmlControls;
 using TLWebForm.App_Data.DAL;
 using TLWebForm.App_Data.DTO;
 
@@ -8,6 +9,7 @@ namespace TLWebForm.App_Data.BAL
     public class CongViecBUS
     {
         private CongViecAccess service = new CongViecAccess();
+        private PhanCongAccess service1 = new PhanCongAccess();
         public CongViecBUS() { }
 
         public void MarkStatus(string id, bool status)
@@ -69,6 +71,16 @@ namespace TLWebForm.App_Data.BAL
             service.AssignPartnerToCongViec(idCongViec, idPartner);
             return true;
         }
+
+        internal bool updatePCCV(string idCv, string idNV, string dateStart, string dateEnd, string comment)
+        {
+            if (service.updateNgay(idCv, dateStart, dateEnd) && service1.updateComment(idNV,idCv,comment))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
         {
             service.InsertJob(ten, timeStart, timeEnd, partner, phamvi);

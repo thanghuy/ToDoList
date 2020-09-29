@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace TLWebForm.App_Data.DAL
@@ -24,6 +25,23 @@ namespace TLWebForm.App_Data.DAL
                 }
             }
         }
-        
+
+        internal bool updateComment(string idNV, string idCv, string comment)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"update PhanCong set Comment = @comment where idnhanvien = @idnhanvien and idcongviec = @idcongviec";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@comment", comment);
+                    cmd.Parameters.AddWithValue("@idnhanvien", idNV);
+                    cmd.Parameters.AddWithValue("@idcongviec", idCv);
+
+                    return cmd.ExecuteNonQuery() != 0;
+                }
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@
     <link href="../../Content/style.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-
+   <form runat="server" id="demo1" method="post">
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -47,10 +47,19 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top">
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#">Xin chào :
+&nbsp;<span class="nav-link text-info"><asp:PlaceHolder ID="userName" runat="server"></asp:PlaceHolder>
+                          &nbsp
+                          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      </span>
+                  </a>
+                  <!-- Dropdown - User Information -->
+                </li>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" id="userDropdown">
-                <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
+              <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
+                  <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" OnClientClick="Logout" Text="Đăng xuất" class="btn btn-primary border mr-2"/>
               </span>
               <!-- Dropdown - User Information -->
             </li>
@@ -72,7 +81,7 @@
                         <h5 class="modal-title" id="exampleModalLabel">Cập nhập công việc</h5>
                     </div>
                     <div class="modal-body">
-                        <form runat="server" id="demo1" method="post">
+                        
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày bắt đầu</label>
                                 <input runat="server" type="date" class="form-control" id="dateS"/>
@@ -88,7 +97,6 @@
                             <div class="form-group float-right">
                                 <asp:Button ID="Button3CV" runat="server" Text="Cập nhập công việc" OnClientClick="Capnhap_click()" OnClick="Button1_Click" class="btn btn-primary"  />
                             </div>
-                        </form>
                     </div>
                     </div>
                 </div>
@@ -103,5 +111,6 @@
     <!-- End of Content Wrapper -->
 
   </div>
+        </form>
 </body>
 </html>

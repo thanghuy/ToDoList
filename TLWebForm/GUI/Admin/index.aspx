@@ -61,7 +61,7 @@
                 </li>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
+              <span class="nav-link dropdown-toggle" id="userDropdown">
                   <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" OnClientClick="Logout" Text="Đăng xuất" class="btn btn-primary border mr-2"/>
               </span>
               <!-- Dropdown - User Information -->

@@ -50,10 +50,19 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top">
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#">Xin chào :
+&nbsp;<span class="nav-link text-info"><asp:PlaceHolder ID="userName" runat="server"></asp:PlaceHolder>
+                          &nbsp
+                          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      </span>
+                  </a>
+                  <!-- Dropdown - User Information -->
+                </li>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
-                <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
+                  <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" OnClientClick="Logout" Text="Đăng xuất" class="btn btn-primary border mr-2"/>
               </span>
               <!-- Dropdown - User Information -->
             </li>

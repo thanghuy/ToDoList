@@ -15,6 +15,15 @@ namespace TLWebForm.GUI.Admin
         StringBuilder table = new StringBuilder();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Session["user"] as string))
+            {
+                var myStr = Session["user"] as String;
+                userName.Controls.Add(new Literal { Text = myStr.ToString() });
+            }
+            else
+            {
+                Response.Redirect("../Login.aspx");
+            }
             /*if (!Page.IsPostBack)
             {
                 CongViecBUS service = new CongViecBUS();
@@ -74,6 +83,13 @@ namespace TLWebForm.GUI.Admin
             {
                 Response.Redirect("./DanhSachCongViec.aspx");
             }
+        }
+        protected void ButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("user");
+            Session.Remove("MaNV");
+            Session.Remove("Quyen");
+            Response.Redirect("../Login.aspx");
         }
     }
 }
