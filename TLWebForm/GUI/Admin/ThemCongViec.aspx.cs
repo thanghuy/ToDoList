@@ -24,28 +24,7 @@ namespace TLWebForm.GUI.Admin
             {
                 Response.Redirect("../Login.aspx");
             }
-            /*if (!Page.IsPostBack)
-            {
-                CongViecBUS service = new CongViecBUS();
-                List<CongViecDTO> list = service.GetAllCongViec();
-
-                foreach (CongViecDTO cv in list)
-                {
-                    table.Append("<tr>");
-                    table.Append("<td>" + cv.Id + "</td>");
-                    table.Append("<td>" + cv.TenCongViec + "</td>");
-                    table.Append("<td>" + "None Available" + "</td>");
-                    table.Append("<td>" + cv.NgayBatDau + "</td>");
-                    table.Append("<td>" + cv.NgayKetThuc + "</td>");
-                    tableAppend(table, cv.Status);
-                    table.Append("/<tr>");
-
-                }
-
-                showCV.Controls.Add(new Literal { Text = table.ToString() });
-            }*/
-            /*< input runat = "server" type = "checkbox" class="form-check-input" id="idPartner"/>
-            <label class="form-check-label" >Partner</label>*/
+           
             if (!Page.IsPostBack)
             {
                 NhanVienBUS service = new NhanVienBUS();

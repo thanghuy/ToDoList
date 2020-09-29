@@ -45,7 +45,7 @@ namespace TLWebForm.App_Data.DAL
         }
 
         
-        public void AddPhanCong(string idNhanvien, string idCongViec)
+        public bool AddPhanCong(string idNhanvien, string idCongViec)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -58,7 +58,7 @@ namespace TLWebForm.App_Data.DAL
                     //reupS
                     cmd.Parameters.AddWithValue("@idnv", idNhanvien);
                     cmd.Parameters.AddWithValue("@idcv", idCongViec);
-                    cmd.ExecuteNonQuery();
+                    return cmd.ExecuteNonQuery()!=0;
                 }
             }
         }

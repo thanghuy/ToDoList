@@ -9,14 +9,14 @@
     <link href="../../Content/style.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-
+    <form id="form1" runat="server">
   <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.aspx">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="DanhSachCongViecNv.aspx">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -25,7 +25,7 @@
         <hr class="sidebar-divider my-0">
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link" href="index.aspx">
+        <a class="nav-link" href="DanhSachCongViecNv.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3">Danh sách nhân viên</span>
         </a>
       </li>
@@ -45,12 +45,21 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top">
+         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top">
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#">Xin chào :
+&nbsp;<span class="nav-link text-info"><asp:PlaceHolder ID="userName" runat="server"></asp:PlaceHolder>
+                          &nbsp
+                          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      </span>
+                  </a>
+                  <!-- Dropdown - User Information -->
+                </li>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
-                <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
+              <span class="nav-link dropdown-toggle" id="userDropdown">
+                  <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" OnClientClick="Logout" Text="Đăng xuất" class="btn btn-primary border mr-2"/>
               </span>
               <!-- Dropdown - User Information -->
             </li>
@@ -87,6 +96,7 @@
                       <th>Phạm vi</th>
                       <th>File</th>
                       <th>Trạng thái</th>
+                        <th>Cập nhật</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -99,21 +109,6 @@
                   </tbody>
                 </table>
               </div>
-              <nav aria-label="...">
-                <ul class="pagination">
-                  <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item active">
-                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
             </div>
           </div>
         </div>
@@ -130,7 +125,7 @@
 
 
   <!-- Bootstrap core JavaScript-->
-
+        </form>
 </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

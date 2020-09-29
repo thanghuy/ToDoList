@@ -37,7 +37,7 @@ namespace TLWebForm.GUI
                 }
                 else
                 {
-                    Response.Redirect("NhanVien/index.aspx");
+                    Response.Redirect("NhanVien/DanhSachCongViecNv.aspx");
                 }
             }
             else

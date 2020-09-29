@@ -25,9 +25,9 @@ namespace TLWebForm.App_Data.BAL
             }
         }
 
-        public void AddPhanCong(string idnhanvien, string idcongviec)
+        public bool AddPhanCong(string idnhanvien, string idcongviec)
         {
-            service.AddPhanCong(idnhanvien, idcongviec);
+            return service.AddPhanCong(idnhanvien, idcongviec);
         }
         
     }

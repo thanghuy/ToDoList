@@ -17,10 +17,12 @@ namespace TLWebForm.GUI.NhanVien
         {
             if(Session["MaNV"] == null)
             {
-                Response.Redirect("../GUI/Login");
+                Response.Redirect("../Login");
             }
             else
             {
+                var myStr = Session["user"] as String;
+                userName.Controls.Add(new Literal { Text = myStr.ToString() });
                 if (!Page.IsPostBack)
                 {
                     string id = Session["MaNV"].ToString();
@@ -31,33 +33,26 @@ namespace TLWebForm.GUI.NhanVien
                     int count = 0;
                     foreach (CongViecNvDTO cv in list)
                     {
-                        if (cv.IsVisible == true)
-                        {
                             count++;
                             table.Append("<tr>");
                             table.Append("<td>" + count + "</td>");
                             table.Append("<td>" + cv.Id + "</td>");
                             table.Append("<td>" + cv.TenCongViec + "</td>");
-                            table.Append("<td>" + cv.IdPartner + "</td>");
+                            table.Append("<td>" + service.getTenNvById(cv.Id) + "</td>");
                             table.Append("<td>" + cv.NgayBatDau + "</td>");
                             table.Append("<td>" + cv.NgayKetThuc + "</td>");
                             table.Append("<td>" + cv.PhamVi + "</td>");
                             table.Append("<td>" + cv.FileDinhKem + "</td>");
                             //tableAppend(table, cv.Status);
                             table.Append(service.CheckStatusCv(cv.Status));
+                            table.Append(service.UpdateStatus(cv.Status,cv.Id));
                             table.Append("</tr>");
-                        }
                     }
 
                     showCV.Controls.Add(new Literal { Text = table.ToString() });
                 }
             }
             
-        }
-
-        private void tableAppend(StringBuilder table, bool status)
-        {
-            _ = status == true ? table.Append("<td>" + "Đã hoàn thành" + "</td>") : table.Append("<td>" + "Chưa hoàn thành" + "</td>");
         }
 
         protected void ButtonLogout_Click(object sender, EventArgs e)

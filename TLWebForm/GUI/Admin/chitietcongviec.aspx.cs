@@ -46,10 +46,6 @@ namespace TLWebForm.GUI.Admin
                        + "<a href='CapNhapCV.aspx?id=" + ctcv.idcongviec + "&idnv="+ctcv.idnhanvien+"' class='btn btn-primary btn-icon-split'>"
                           + "<span class='text'>Sửa</span>"
                         +"</a>"
-        
-                        +"<a href='#' class='btn btn-danger btn-circle'>"
-                            +"<span class='text'>Xóa</span>"
-                        +"</a>"
                       +"</td>"
                     +"</tr>");
             }

@@ -17,10 +17,12 @@ namespace TLWebForm.GUI.NhanVien
         {
             if (Session["MaNV"] == null)
             {
-                Response.Redirect("../GUI/Login");
+                Response.Redirect("../Login");
             }
             else
             {
+                var myStr = Session["user"] as String;
+                userName.Controls.Add(new Literal { Text = myStr.ToString() });
                 if (!Page.IsPostBack)
                 {
                     //string id = Session["MaNV"].ToString();

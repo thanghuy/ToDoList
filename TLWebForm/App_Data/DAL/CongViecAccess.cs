@@ -27,7 +27,50 @@ namespace TLWebForm.App_Data.DAL
             }
         }
 
-    internal List<ChitTietCvDTO> getChiTiet(int id)//Cũ
+        internal void updateStatusById(string idcv)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"UPDATE CongViec SET Status=1 WHERE id = "+idcv;
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        internal List<CongViecDTO> getCongViecById(string v)
+        {
+            List<CongViecDTO> list = new List<CongViecDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"SELECT cv.id,cv.NameCongViec from CongViec cv 
+                WHERE cv.id not in (SELECT idcongviec from PhanCong WHERE IdNhanVien = "+v+") ";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            CongViecDTO cv = new CongViecDTO();
+                            cv.Id = Convert.ToInt32(dr["Id"].ToString());
+                            cv.TenCongViec = dr["NameCongViec"].ToString();
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
+
+        internal List<ChitTietCvDTO> getChiTiet(int id)//Cũ
         {
             List<ChitTietCvDTO> list = new List<ChitTietCvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -159,7 +202,10 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = " + id;
 
                 // Set up a command with the given query and associate
                 // this with the current connection.
-                string query = @"select * from CongViec where IdNhanVien = " + idNhanVien;
+                string query = @"select cv.id,cv.NameCongViec,cv.StartDate,cv.EndDate,cv.isPublic,cv.Files,cv.Status,pc.comment from CongViec cv , NhanVien nv , PhanCong pc 
+				where nv.id = pc.idnhanvien
+				and cv.id = pc.idcongviec 
+				and nv.id = " + idNhanVien;
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -167,16 +213,14 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = " + id;
                         while (dr.Read())
                         {
                             CongViecNvDTO cv = new CongViecNvDTO();
-                            cv.Id = Convert.ToInt32(dr["Id"].ToString());
+                            cv.Id = Convert.ToInt32(dr["id"].ToString());
                             cv.NgayBatDau = dr["StartDate"].ToString();
                             cv.NgayKetThuc = dr["EndDate"].ToString();
                             cv.PhamVi = Convert.ToBoolean(dr["IsPublic"]);
-                            cv.IdPartner = dr["PartnerNhanVien"].ToString();
                             cv.Status = Convert.ToInt32(dr["Status"]);
                             cv.TenCongViec = dr["NameCongViec"].ToString();
-                            //cv.BinhLuan = dr[6].ToString();
+                            cv.BinhLuan = dr["comment"].ToString();
                             cv.FileDinhKem = dr["Files"].ToString();
-                            cv.IsVisible = Convert.ToBoolean(dr["IsVisible"]);
                             list.Add(cv);
                         }
                     }
@@ -197,7 +241,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = " + id;
                 {
                     cmd.Parameters.AddWithValue("@idcongviec", id);
                     cmd.Parameters.AddWithValue("idnhanvien", p);
-                    cmd.Parameters.AddWithValue("@comment", "");
+                    cmd.Parameters.AddWithValue("@comment", " ");
                     System.Diagnostics.Debug.WriteLine(query);
                     cmd.ExecuteNonQuery();
                 }
@@ -409,24 +453,20 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = " + id;
         }
 
 
-        public void CreateCvNv(string ten, string idnv, string timeStart, string timeEnd, bool phamvi, string file)
+        public bool CreateCvNv(string idcv, string timeStart, string timeEnd)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"insert into CongViec(NameCongViec, IdNhanVien, StartDate, EndDate, IsPublic, Files, Status, IsVisible)" +
-                                "values (@TenCongViec, @IdNhanVien, @NgayBatDau, @NgayKetThuc, @PhamVi, @FileDinhKem, 0, 1)";
+                string query = @"UPDATE CongViec SET StartDate = @timeStart,EndDate = @timeEnd,Status = 0 WHERE id = @idcv";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@TenCongViec", ten);
-                    cmd.Parameters.AddWithValue("@IdNhanVien", idnv);
-                    cmd.Parameters.AddWithValue("@NgayBatDau", timeStart);
-                    cmd.Parameters.AddWithValue("@NgayKetThuc", timeEnd);
-                    //cmd.Parameters.AddWithValue("@AvatarPath", avatarPath);
-                    cmd.Parameters.AddWithValue("@PhamVi", phamvi);
-                    cmd.Parameters.AddWithValue("@FileDinhKem", file);
-                    cmd.ExecuteNonQuery();
+
+                    cmd.Parameters.AddWithValue("@idcv", idcv);
+                    cmd.Parameters.AddWithValue("@timeStart", timeStart);
+                    cmd.Parameters.AddWithValue("@timeEnd", timeEnd);
+                    return cmd.ExecuteNonQuery()!=0;
                 }
             }
         }

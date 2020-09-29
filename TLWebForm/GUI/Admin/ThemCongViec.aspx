@@ -117,7 +117,7 @@
                                 </select>
                             </div>
                             <div class="modal-footer">
-                                <asp:Button ID="Button1" runat="server" Text="Thêm công việc" OnClientClick="Button2_Click" OnClick="Button2_Click" class="btn btn-primary"  />
+                                <asp:Button ID="Button1" runat="server" Text="Thêm công việc" OnClientClick="Button1_Click" OnClick="Button1_Click" class="btn btn-primary"  />
                             </div>
                         
                     </div>

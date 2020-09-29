@@ -50,5 +50,4 @@ function validateForm() {
     }
     $(".form-control").removeClass("is-invalid");
     return true;
-    
 }

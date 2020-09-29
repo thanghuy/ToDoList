@@ -26,6 +26,16 @@ namespace TLWebForm.App_Data.BAL
             }
         }
 
+        internal void updateStatusById(string idcv)
+        {
+            service.updateStatusById(idcv);
+        }
+
+        internal List<CongViecDTO> getCongViecById(string v)
+        {
+            return service.getCongViecById(v);
+        }
+
         internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
         {
             return service.GetAllCongViecNv(idNhanVien);
@@ -119,15 +129,23 @@ namespace TLWebForm.App_Data.BAL
             }
             return true;
         }
-        public void ThemCongViecNV(string ten, string idnv, string timeStart, string timeEnd, bool phamvi, string file)
+        public bool ThemCongViecNV(string idcv, string timeStart, string timeEnd)
         {
-            service.CreateCvNv(ten, idnv, timeStart, timeEnd, phamvi, file);
+            return service.CreateCvNv(idcv, timeStart, timeEnd);
         }
 
         public string GetLatestIdCongViec()
         {
             return service.GetLatestIdCongViec();
         }
-                
+
+        public string UpdateStatus(int status,int idcv)
+        {
+            if (status == 0)
+            {
+                return "<td><a href='./CapNhatStatus.aspx?id=" + idcv + "'>Cập nhật</a></td>";
+            }
+             return "";
+        }
     }
 }
