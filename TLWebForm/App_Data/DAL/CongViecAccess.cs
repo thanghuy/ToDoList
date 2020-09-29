@@ -107,12 +107,13 @@ namespace TLWebForm.App_Data.DAL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"insert into PhanCong(idcongviec,idnhanvien)" +
-                                "values (@idcongviec,@idnhanvien)";
+                string query = @"insert into PhanCong(idcongviec,idnhanvien,comment)" +
+                                "values (@idcongviec,@idnhanvien,@comment)";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@idcongviec", id);
                     cmd.Parameters.AddWithValue("idnhanvien", p);
+                    cmd.Parameters.AddWithValue("@comment", "");
                     System.Diagnostics.Debug.WriteLine(query);
                     cmd.ExecuteNonQuery();
                 }
