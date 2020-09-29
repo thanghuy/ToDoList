@@ -10,6 +10,8 @@
 </head>
 <body id="page-top">
 
+    <form id="form1" runat="server">
+
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -74,7 +76,7 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr class="column-title">
-                      <th>STT</th>
+                      <th>Id công việc</th>
                       <th>Tên công việc</th>
                       <th>Ngày bắt đầu</th>
                       <th>Ngày kết thúc</th>
@@ -87,35 +89,15 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Lập trình fontend</td>
-                      <td>21-9-2020</td>
-                      <td>27-9-2020</td>
-                      <td>Public</td>
-                      <td>Ninh Ngọc Hiếu</td>
-                      <td>text.pdf</td>
-                      <td>Rất tốt</td>  
-                      <td> 
-                        <span class="badge badge-primary">Đang làm</span>
-                      </td>
-                      <td>
-                        <a href="CapNhapCV.aspx?id=1" class="btn btn-primary btn-icon-split">
-                          <span class="text">Sửa</span>
-                        </a>
-        
-                        <a href="#" class="btn btn-danger btn-circle">
-                            <span class="text">Xóa</span>
-                        </a>
-                      </td>
-                    </tr>
+                    <asp:PlaceHolder ID="ChitietCV" runat="server"></asp:PlaceHolder>
                   </tbody>
                 </table>
               </div>
               <nav aria-label="...">
                 <ul class="pagination">
                   <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    <a class="page-link" href="#" tabindex="-1">
+                      Previous</a>
                   </li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
                   <li class="page-item active">
@@ -142,6 +124,8 @@
   <!-- Scroll to Top Button-->
 
   <!-- Bootstrap core JavaScript-->
+
+    </form>
 
 </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
