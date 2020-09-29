@@ -81,16 +81,12 @@
                                 <label for="exampleInputEmail1">Ngày kết thúc</label>
                                 <input runat="server" type="date" class="form-control" id="dateE"/>
                             </div>
-                            <div class="form-check">  
-                                <input runat="server" type="checkbox" class="form-check-input" id="idP"/>
-                                <label class="form-check-label">Partner</label>
-                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Bình luận</label>
-                                <input runat="server" type="text"  class="form-control" id="comment"/>
+                                <textarea runat="server" id="comment" class="form-control" name="w3review" rows="4" cols="50"></textarea>
                             </div>
-                            <div class="modal-footer">
-                                <asp:Button ID="Button3" runat="server" Text="Cập nhập công việc" OnClientClick="Capnhap_click" OnClick="Button1_Click" class="btn btn-primary"  />
+                            <div class="form-group float-right">
+                                <asp:Button ID="Button3CV" runat="server" Text="Cập nhập công việc" OnClientClick="Capnhap_click()" OnClick="Button1_Click" class="btn btn-primary"  />
                             </div>
                         </form>
                     </div>

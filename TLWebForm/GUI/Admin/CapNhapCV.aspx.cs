@@ -18,7 +18,7 @@ namespace TLWebForm.GUI.Admin
             {
                 CongViecBUS service = new CongViecBUS();
                 string idCv = Request.QueryString["id"];
-                string idNV = Request.QueryString["idNV"];
+                string idNV = Request.QueryString["idnv"];
                 //List<CongViecDTO> list = service.GetAllCongViecNVcv(idCv,idNV);
 
                 /*foreach (CongViecDTO cv in list)
@@ -32,11 +32,15 @@ namespace TLWebForm.GUI.Admin
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
             //Cập nhập công việc tại đây với quyên admin
-            String dateEnd = DateTime.Parse(dateE.Value).ToString();
-            string idNV = idP.Value;
+            string idCv = Request.QueryString["id"];
+            string idNV = Request.QueryString["idnv"];
+            string dateEnd = DateTime.Parse(dateE.Value).ToString();
+            string dateStart = DateTime.Parse(dateS.Value).ToString();
             string comments = comment.Value;
-
+            Console.WriteLine(idCv, idNV, dateStart, dateE, comments);
         }
+        
     }
 }
