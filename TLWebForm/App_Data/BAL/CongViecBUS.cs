@@ -44,6 +44,11 @@ namespace TLWebForm.App_Data.BAL
             return service.GetAllCongViecPublic();
         }
 
+        internal string getTenNvById(int id)
+        {
+            return service.getNvById(id);
+        }
+
         public bool AssignCongViec(string idCongViec, string idNhanVien, string idPartner)
         {
             if((int.Parse(idNhanVien)) <= 0 || (int.Parse(idCongViec)) <= 0)

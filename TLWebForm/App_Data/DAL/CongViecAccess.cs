@@ -65,6 +65,34 @@ namespace TLWebForm.App_Data.DAL
             return list;
         }
 
+        internal string getNvById(int id)
+        {
+            string s = "";
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"
+                    select FullName from CongViec cv,NhanVien nv, PhanCong pc
+                    WHERE cv.id = pc.idcongviec and nv.id = pc.idnhanvien
+                    and cv.id = "+id;
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (SqlDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            s = s + dr.GetString(0)+" ,";
+                        }
+                    }
+                }
+            }
+            return s;
+        }
+
         internal bool updateNgay(string idCv, string dateStart, string dateEnd)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -182,8 +210,8 @@ namespace TLWebForm.App_Data.DAL
                         {
                             CongViecDTO cv = new CongViecDTO();
                             cv.Id = Convert.ToInt32(dr[0].ToString());
-                            cv.NgayBatDau = dr[2].ToString();
-                            cv.NgayKetThuc = dr[3].ToString();
+                            cv.NgayBatDau = dr[3].ToString();
+                            cv.NgayKetThuc = dr[4].ToString();
                             cv.PhamVi = (bool)dr["IsPublic"];
                             cv.Status = Convert.ToInt32(dr["Status"].ToString());
                             cv.TenCongViec = dr[1].ToString();
