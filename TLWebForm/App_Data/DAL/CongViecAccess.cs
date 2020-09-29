@@ -27,7 +27,7 @@ namespace TLWebForm.App_Data.DAL
             }
         }
 
-                internal List<ChitTietCvDTO> getChiTiet(int id)
+    internal List<ChitTietCvDTO> getChiTiet(int id)
         {
             List<ChitTietCvDTO> list = new List<ChitTietCvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -37,8 +37,10 @@ namespace TLWebForm.App_Data.DAL
 
                 // Set up a command with the given query and associate
                 // this with the current connection.
-                string query = @"select nv.id,cv.Id, cv.TenCongViec,cv.NgayBatDau,cv.NgayKetThuc,cv.PhamVi,pc.comment, cv.Status from congviec cv,nhanvien nv,phancong pc
-where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
+                string query = @"select cv.id,cv.NameCongViec,cv.StartDate,cv.EndDate,cv.isPublic,cv.Files,cv.Status,pc.comment,nv.id from CongViec cv , NhanVien nv , PhanCong pc 
+				where nv.id = pc.idnhanvien
+				and cv.id = pc.idcongviec 
+				and nv.id = " + id;
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -46,14 +48,15 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
                         while (dr.Read())
                         {
                             ChitTietCvDTO cv = new ChitTietCvDTO();
-                            cv.idnhanvien = dr.GetInt32(0);
-                            cv.idcongviec = dr.GetInt32(1);
-                            cv.TenCongViec = dr.GetString(2);
-                            cv.NgayBatDau = dr.GetDateTime(3).ToString();
-                            cv.NgayKetThuc = dr.GetDateTime(4).ToString();
-                            cv.PhamVi = dr.GetBoolean(5);
-                            cv.Comment = dr.GetString(6);
-                            cv.Status = dr.GetInt32(7);
+                            cv.idcongviec = dr.GetInt32(0);
+                            cv.TenCongViec = dr.GetString(1);
+                            cv.NgayBatDau = dr.GetDateTime(2).ToString();
+                            cv.NgayKetThuc = dr.GetDateTime(3).ToString() == null ? "" : dr.GetDateTime(3).ToString();
+                            cv.PhamVi = dr.GetBoolean(4);
+                            cv.Files = dr.GetString(5);
+                            cv.Status = dr.GetInt32(6);
+                            cv.Comment = dr.GetString(7) == null ? "" : dr.GetString(7);
+                            cv.idnhanvien = dr.GetInt32(8);
                             list.Add(cv);
                         }
                     }
@@ -174,7 +177,38 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             }
             return list;
         }
+        public List<CongViecDTO> GetAllCongViecNVcv(string idCv, string idNv)
+        {
+            List<CongViecDTO> list = new List<CongViecDTO>();
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
 
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select cv.StartDate,cv.EndDate,pc.comment from CongViec cv,PhanCong pc , NhanVien nv"
+                                + "where nv.id = pc.idnhanvien"
+                                + "and cv.id = pc.idcongviec"
+                                + "and nv.id = " + idCv + ""
+                                + "and cv.id = " + idNv;
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            CongViecDTO cv = new CongViecDTO();
+                            cv.NgayBatDau = dr[0].ToString();
+                            cv.NgayKetThuc = dr[1].ToString();
+                            cv.BinhLuan = dr[2].ToString();
+                            list.Add(cv);
+                        }
+                    }
+                }
+            }
+            return list;
+        }
         internal void InsertJob(string ten, string timeStart, string timeEnd, string partner, bool phamvi)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");

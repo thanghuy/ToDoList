@@ -74,14 +74,6 @@
                     <div class="modal-body">
                         <form runat="server" id="demo1" method="post">
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Chọn công việc</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
-                                  
-                                    <asp:PlaceHolder ID="getAllCV" runat="server"></asp:PlaceHolder>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày bắt đầu</label>
                                 <input runat="server" type="date" class="form-control" id="dateS"/>
                             </div>
@@ -91,7 +83,7 @@
                             </div>
                             <div class="form-check">  
                                 <input runat="server" type="checkbox" class="form-check-input" id="idP"/>
-                                <label class="form-check-label" value="1">Partner</label>
+                                <label class="form-check-label">Partner</label>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Bình luận</label>
