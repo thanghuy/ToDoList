@@ -115,7 +115,6 @@
                       <th>Người đang làm</th>
                       <th>Ngày bắt đầu</th>
                       <th>Ngày kết thúc</th>
-                      <th>Trạng thái</th>
                     </tr>
                   </thead>
                   <tbody>

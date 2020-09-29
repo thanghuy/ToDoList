@@ -34,10 +34,10 @@ namespace TLWebForm.GUI.Admin
                     table.Append("<tr>");
                     table.Append("<td>"+cv.Id+"</td>");
                     table.Append("<td>" + cv.TenCongViec + "</td>");
-                    table.Append("<td>" + "None Available" + "</td>");
+                    table.Append("<td>" + service.getTenNvById(cv.Id) + "</td>");
                     table.Append("<td>" + cv.NgayBatDau + "</td>");
                     table.Append("<td>" + cv.NgayKetThuc + "</td>");
-                    table.Append(service.CheckStatusCv(cv.Status));
+                   /* table.Append(service.CheckStatusCv(cv.Status));*/
                     table.Append("</tr>");
 
                 }
