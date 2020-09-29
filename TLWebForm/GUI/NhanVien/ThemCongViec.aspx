@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ThemCongViec.aspx.cs" Inherits="TLWebForm.GUI.Admin.Test" %>
+﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="ThemCongViec.aspx.cs" Inherits="TLWebForm.GUI.NhanVien.ThemCongViec" %>
 
 <!DOCTYPE html>
 
@@ -79,20 +79,35 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày bắt đầu</label>
-                                <input runat="server" type="date" class="form-control" id="dateStart"/>
+                                <input runat="server" type="date" class="form-control" id="dateStart" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Ngày kết thúc</label>
                                 <input runat="server" type="date" class="form-control" id="dateEnd"/>
                             </div>
-                            
-                            <div class="form-check">  
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                Thêm nhân viên
-                              </button>
+                            <input runat="server" type="hidden" class="form-control" id="idPartner"/>
+  
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Người làm chung</label>
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        Thêm
+                                     </button>
+                                 </p>
                                 <div class="collapse" id="collapseExample">
-                                  <div class="card">
-                                        <asp:PlaceHolder ID="allNhanVien" runat="server"></asp:PlaceHolder>
+                                  <div class="card card-body">
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="1" id="nv0" />
+                                      <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                      </label>
+                                    </div>
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="2" id="vn1" />
+                                      <label class="form-check-label" for="defaultCheck2">
+                                        Disabled checkbox
+                                      </label>
+                                    </div>
                                   </div>
                                 </div>
                             </div>
@@ -133,4 +148,5 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="../../Scripts/xuly.js"></script>
 </html>

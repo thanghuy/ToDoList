@@ -12,10 +12,10 @@ namespace TLWebForm.GUI.NhanVien
 
     {
         StringBuilder table = new StringBuilder();
-   
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["MaNV"] == null)
+            if (Session["MaNV"] == null)
             {
                 Response.Redirect("../GUI/Login");
             }
@@ -52,6 +52,7 @@ namespace TLWebForm.GUI.NhanVien
 
                             table.Append("<td>" + "Public" + "</td>");
                             table.Append("<td>" + cv.FileDinhKem + "</td>");
+                            table.Append("" + service.CheckStatusCv(cv.Status) + "");
                             //tableAppend(table, cv.Status);
                             table.Append("</tr>");
                         }
@@ -60,7 +61,7 @@ namespace TLWebForm.GUI.NhanVien
                     showCV.Controls.Add(new Literal { Text = table.ToString() });
                 }
             }
-            
+
         }
 
         private void tableAppend(StringBuilder table, bool status)

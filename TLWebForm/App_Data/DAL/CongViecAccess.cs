@@ -26,7 +26,7 @@ namespace TLWebForm.App_Data.DAL
             }
         }
 
-                internal List<ChitTietCvDTO> getChiTiet(int id)
+        internal List<ChitTietCvDTO> getChiTiet(int id)
         {
             List<ChitTietCvDTO> list = new List<ChitTietCvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -37,7 +37,7 @@ namespace TLWebForm.App_Data.DAL
                 // Set up a command with the given query and associate
                 // this with the current connection.
                 string query = @"select nv.id,cv.Id, cv.TenCongViec,cv.NgayBatDau,cv.NgayKetThuc,cv.PhamVi,pc.comment, cv.Status from congviec cv,nhanvien nv,phancong pc
-where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
+where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = " + id;
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     using (SqlDataReader dr = cmd.ExecuteReader())
@@ -61,7 +61,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             return list;
         }
 
-                internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
+        internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
         {
             List<CongViecNvDTO> list = new List<CongViecNvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -96,6 +96,7 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
             }
             return list;
         }
+
 
         public List<CongViecDTO> GetAllCongViec()
         {
@@ -241,6 +242,54 @@ where nv.id = pc.idnhanvien and pc.idcongviec=cv.Id and idnhanvien = "+id;
                     cmd.Parameters.AddWithValue("@idCongViec", idCongViec);
                     cmd.Parameters.AddWithValue("@idPartner", idPartner);
                     cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public void CreateCvNv(string ten, string idnv, string timeStart, string timeEnd, bool phamvi, string file)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"insert into CongViec(NameCongViec, IdNhanVien, StartDate, EndDate, IsPublic, Files, Status, IsVisible)" +
+                                "values (@TenCongViec, @IdNhanVien, @NgayBatDau, @NgayKetThuc, @PhamVi, @FileDinhKem, 0, 1)";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@TenCongViec", ten);
+                    cmd.Parameters.AddWithValue("@IdNhanVien", idnv);
+                    cmd.Parameters.AddWithValue("@NgayBatDau", timeStart);
+                    cmd.Parameters.AddWithValue("@NgayKetThuc", timeEnd);
+                    //cmd.Parameters.AddWithValue("@AvatarPath", avatarPath);
+                    cmd.Parameters.AddWithValue("@PhamVi", phamvi);
+                    cmd.Parameters.AddWithValue("@FileDinhKem", file);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public string GetLatestIdCongViec()
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                // Set up a command with the given query and associate
+                // this with the current connection.
+                string query = @"select id from CongViec where id = (select max(id) from CongViec)";
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    using (IDataReader dr = cmd.ExecuteReader())
+                    {
+                        while (dr.Read())
+                        {
+                            string id = dr["Id"].ToString();
+                            return id;
+                        }
+                    }
+                    return null;
                 }
             }
         }

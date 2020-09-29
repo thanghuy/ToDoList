@@ -68,7 +68,7 @@
             <div class="card-header py-3 clearfix">
               <h6 class="m-0 font-weight-bold text-primary float-left" style="line-height: 35px;">Tất cả công việc</h6>
               <div class="float-right">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addJobNV">Thêm công việc</button>
+                <a href="ThemCongViec.aspx" class="btn btn-primary" >Thêm công việc</a>
               </div>
               <div class="modal fade" id="addJobNV" tabindex="-1" aria-labelledby="addJobNVLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -268,7 +268,7 @@
 
   <!-- Bootstrap core JavaScript-->
 
-</body>
+</body>   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

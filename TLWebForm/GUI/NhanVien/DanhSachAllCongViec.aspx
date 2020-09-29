@@ -20,17 +20,17 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Quản lý công việc(Admin)</div>
+        <div class="sidebar-brand-text mx-3">Quản lý công việc(Nhân Viên)</div>
       </a>
         <hr class="sidebar-divider my-0">
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link" href="index.aspx">
-          <span class="nav-link-title sidebar-brand-text mx-3" href="index.aspx">Danh sách nhân viên</span>
+          <span class="nav-link-title sidebar-brand-text mx-3" href="DanhSachAllCongViec.aspx">Danh sách nhân viên</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="DanhSachCongViec.aspx">
+        <a class="nav-link" href="DanhSachCongViecNv.aspx">
           <span class="nav-link-title sidebar-brand-text mx-3" href="DanhSachCongViecNv.aspx">Danh sách công việc</span>
         </a>
       </li>
