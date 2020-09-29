@@ -65,7 +65,25 @@ namespace TLWebForm.App_Data.DAL
             return list;
         }
 
-                internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
+        internal bool updateNgay(string idCv, string dateStart, string dateEnd)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"update CongViec set StartDate = @dateStart, EndDate = @dateEnd where id = @id";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCv);
+                    cmd.Parameters.AddWithValue("@dateStart", dateStart);
+                    cmd.Parameters.AddWithValue("@dateEnd", dateEnd);
+
+                    return cmd.ExecuteNonQuery()!=0;
+                }
+            }
+        }
+
+        internal List<CongViecNvDTO> GetAllCongViecNv(string idNhanVien)
         {
             List<CongViecNvDTO> list = new List<CongViecNvDTO>();
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -107,12 +125,13 @@ namespace TLWebForm.App_Data.DAL
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = @"insert into PhanCong(idcongviec,idnhanvien)" +
-                                "values (@idcongviec,@idnhanvien)";
+                string query = @"insert into PhanCong(idcongviec,idnhanvien,comment)" +
+                                "values (@idcongviec,@idnhanvien,@comment)";
                 using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@idcongviec", id);
                     cmd.Parameters.AddWithValue("idnhanvien", p);
+                    cmd.Parameters.AddWithValue("@comment", "");
                     System.Diagnostics.Debug.WriteLine(query);
                     cmd.ExecuteNonQuery();
                 }
@@ -190,8 +209,8 @@ namespace TLWebForm.App_Data.DAL
                 string query = @"select cv.StartDate,cv.EndDate,pc.comment from CongViec cv,PhanCong pc , NhanVien nv"
                                 + "where nv.id = pc.idnhanvien"
                                 + "and cv.id = pc.idcongviec"
-                                + "and nv.id = " + idCv + ""
-                                + "and cv.id = " + idNv;
+                                + "and nv.id = " + idNv + ""
+                                + "and cv.id = " + idCv;
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     using (IDataReader dr = cmd.ExecuteReader())

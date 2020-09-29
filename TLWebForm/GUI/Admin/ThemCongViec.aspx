@@ -9,8 +9,9 @@
     <link href="../../Content/style.css" rel="stylesheet" />
 </head>
 <body id="page-top">
-
   <!-- Page Wrapper -->
+    
+                        <form runat="server" id="demo1" method="post">
   <div id="wrapper">
 
     <!-- Sidebar -->
@@ -47,10 +48,19 @@
         <!-- Topbar -->
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top">
           <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown no-arrow">
+                  <a class="nav-link dropdown-toggle" href="#">Xin chào :
+&nbsp;<span class="nav-link text-info"><asp:PlaceHolder ID="userName" runat="server"></asp:PlaceHolder>
+                          &nbsp
+                          <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                      </span>
+                  </a>
+                  <!-- Dropdown - User Information -->
+                </li>
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <span class="nav-link dropdown-toggle" id="userDropdown">
-                <button type="submit" class="btn btn-primary border mr-2">Đăng xuất</button>
+              <span class="nav-link dropdown-toggle" href="#" id="userDropdown">
+                  <asp:Button ID="ButtonLogout" runat="server" OnClick="ButtonLogout_Click" OnClientClick="Logout" Text="Đăng xuất" class="btn btn-primary border mr-2"/>
               </span>
               <!-- Dropdown - User Information -->
             </li>
@@ -72,7 +82,6 @@
                         <h5 class="modal-title" id="exampleModalLabel">Thêm công việc</h5>
                     </div>
                     <div class="modal-body">
-                        <form runat="server" id="demo1" method="post">
                             <div class="form-group">
                                 <label>Tên công việc</label>
                                 <input runat="server" type="text" class="form-control" id="tenCongViec"/>
@@ -100,11 +109,6 @@
                                   </div>
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">File</label>
-                                <input runat="server" type="file" class="form-control" id="filePath"/>
-                            </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Phạm vi</label>
                                 <select runat="server" class="form-control" id="phamVi">
@@ -115,7 +119,7 @@
                             <div class="modal-footer">
                                 <asp:Button ID="Button1" runat="server" Text="Thêm công việc" OnClientClick="Button2_Click" OnClick="Button1_Click" class="btn btn-primary"  />
                             </div>
-                        </form>
+                        
                     </div>
                     </div>
                 </div>
@@ -131,8 +135,7 @@
 
   </div>
   <!-- End of Page Wrapper -->
-
-
+    </form>
 </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

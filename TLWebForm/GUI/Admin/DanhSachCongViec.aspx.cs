@@ -15,6 +15,15 @@ namespace TLWebForm.GUI.Admin
    
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!string.IsNullOrEmpty(Session["user"] as string))
+            {
+                var myStr = Session["user"] as String;
+                userName.Controls.Add(new Literal { Text = myStr.ToString() });
+            }
+            else
+            {
+                Response.Redirect("../Login.aspx");
+            }
             if (!Page.IsPostBack)
             {
                 CongViecBUS service = new CongViecBUS();
@@ -28,7 +37,7 @@ namespace TLWebForm.GUI.Admin
                     table.Append("<td>" + "None Available" + "</td>");
                     table.Append("<td>" + cv.NgayBatDau + "</td>");
                     table.Append("<td>" + cv.NgayKetThuc + "</td>");
-                    tableAppend(table,cv.Status);
+                    table.Append(service.CheckStatusCv(cv.Status));
                     table.Append("</tr>");
 
                 }
@@ -52,6 +61,13 @@ namespace TLWebForm.GUI.Admin
                     table.Append("<td>" + "<button type='button' class='btn btn-success'>Đã hoàn thành</button>" + "</td>");
                     break;
             }
+        }
+        protected void ButtonLogout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("user");
+            Session.Remove("MaNV");
+            Session.Remove("Quyen");
+            Response.Redirect("../Login.aspx");
         }
     }
 }
