@@ -39,7 +39,19 @@ namespace TLWebForm.GUI.Admin
 
         private void tableAppend(StringBuilder table, int status)
         {
-            _ = status == 1 ? table.Append("<td>" + "Đã hoàn thành" + "</td>") : table.Append("<td>" + "Chưa hoàn thành" + "</td>");
+           // _ = status == 1 ? table.Append("<td>" + "Đã hoàn thành" + "</td>") : table.Append("<td>" + "Chưa hoàn thành" + "</td>");
+            switch (status)
+            {
+                case 0:
+                    table.Append("<td>" + "<button type='button' class='btn btn-danger'>Chưa hoàn thành</button>" + "</td>");
+                    break;
+                case 1:
+                    table.Append("<td>" + "<button type='button' class='btn btn-primary'>Đang thực hiện</button>" + "</td>");
+                    break;
+                case 2:
+                    table.Append("<td>" + "<button type='button' class='btn btn-success'>Đã hoàn thành</button>" + "</td>");
+                    break;
+            }
         }
     }
 }
