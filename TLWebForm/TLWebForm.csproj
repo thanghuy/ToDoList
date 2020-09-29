@@ -158,6 +158,7 @@
     <Content Include="GUI\NhanVien\DanhSachCongViecNv.aspx" />
     <Content Include="GUI\NhanVien\index.aspx" />
     <Content Include="GUI\NhanVien\Demo.aspx" />
+    <Content Include="GUI\NhanVien\ThemCongViec.aspx" />
     <Content Include="GUI\ThemCongViec.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -326,6 +327,13 @@
     </Compile>
     <Compile Include="GUI\NhanVien\Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NhanVien\ThemCongViec.aspx.cs">
+      <DependentUpon>ThemCongViec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GUI\NhanVien\ThemCongViec.aspx.designer.cs">
+      <DependentUpon>ThemCongViec.aspx</DependentUpon>
     </Compile>
     <Compile Include="GUI\SuaCongViec.cs" />
     <Compile Include="GUI\ThemCongViec.aspx.cs">

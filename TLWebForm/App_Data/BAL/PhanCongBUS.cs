@@ -24,6 +24,11 @@ namespace TLWebForm.App_Data.BAL
                 service.MakeComment(idCongViec, idNhanVien, content);
             }
         }
+
+        public void AddPhanCong(string idnhanvien, string idcongviec)
+        {
+            service.AddPhanCong(idnhanvien, idcongviec);
+        }
         
     }
 }

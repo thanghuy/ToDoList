@@ -119,5 +119,15 @@ namespace TLWebForm.App_Data.BAL
             }
             return true;
         }
+        public void ThemCongViecNV(string ten, string idnv, string timeStart, string timeEnd, bool phamvi, string file)
+        {
+            service.CreateCvNv(ten, idnv, timeStart, timeEnd, phamvi, file);
+        }
+
+        public string GetLatestIdCongViec()
+        {
+            return service.GetLatestIdCongViec();
+        }
+                
     }
 }

@@ -25,7 +25,7 @@ namespace TLWebForm.App_Data.DAL
                 }
             }
         }
-
+        
         internal bool updateComment(string idNV, string idCv, string comment)
         {
             string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
@@ -43,5 +43,25 @@ namespace TLWebForm.App_Data.DAL
                 }
             }
         }
+
+        
+        public void AddPhanCong(string idNhanvien, string idCongViec)
+        {
+            string connectionString = DataAccess.Internal.DataAccess.GetConnectionString("TodoListDb");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = @"insert into PhanCong(idnhanvien, idcongviec)" +
+                                "values (@idnv, @idcv)";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    //reupS
+                    cmd.Parameters.AddWithValue("@idnv", idNhanvien);
+                    cmd.Parameters.AddWithValue("@idcv", idCongViec);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
     }
 }

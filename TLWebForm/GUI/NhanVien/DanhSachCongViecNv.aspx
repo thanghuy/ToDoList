@@ -20,7 +20,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Quản lý công việc(Admin)</div>
+        <div class="sidebar-brand-text mx-3">Quản lý công việc(Nhân Viên)</div>
       </a>
         <hr class="sidebar-divider my-0">
       <!-- Nav Item - Pages Collapse Menu -->
@@ -69,31 +69,8 @@
               <div class="float-right">
                 <a href="ThemCongViec.aspx" class="btn btn-primary" >Thêm công việc</a>
               </div>
-              <!-- Modal thêm công việc -->
-              <div class="modal fade" id="addJob" tabindex="-1" aria-labelledby="addJobLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Thêm công việc</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                              <label for="exampleInputEmail1">Tên công việc</label>
-                              <input type="text" class="form-control">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                      <button type="button" class="btn btn-primary">Thêm</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            
+             
               <!-- end-->
             </div>
             <div class="card-body">
